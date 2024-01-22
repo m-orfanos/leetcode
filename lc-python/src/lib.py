@@ -1,3 +1,4 @@
+import math
 import os
 import pathlib
 
@@ -61,3 +62,16 @@ def read_lines(filename: str) -> List[str]:
     with open(file) as f:
         lines = f.read().splitlines()
     return lines
+
+
+def max_subarray(xs: List[int]) -> int:
+    """
+    Find the largest sum of any contiguous subarray.
+    Kadane's algorithm (maximum subarray problem)
+    """
+    best_sum = -math.inf
+    current_sum = 0
+    for x in xs:
+        current_sum = max(x, current_sum + x)
+        best_sum = max(best_sum, current_sum)
+    return best_sum
