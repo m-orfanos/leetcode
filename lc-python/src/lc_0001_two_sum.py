@@ -3,7 +3,7 @@ from typing import List
 
 def two_sum(nums: List[int], target: int) -> List[int]:
     """
-    Instead of checking for pairs of entries, iterate over the array 
+    Instead of checking for pairs of entries, iterate over the array
     once and check if there is a matching entry that satisfies the target.
 
     Requires a map to be built from the initial array. Can also be built
@@ -29,9 +29,9 @@ def two_sum_brute_force(nums: List[int], target: int) -> List[int]:
     Time complexity: O(n^2)
     Space complexity: O(1)
     """
-    for i, n1 in enumerate(nums):
-        for j, n2 in enumerate(nums):
-            if i != j and n1 + n2 == target:
+    for i in range(len(nums)):
+        for j in range(i + 1, len(nums)):
+            if nums[i] + nums[j] == target:
                 return [i, j]
     # no solution found, should not happen
     return []

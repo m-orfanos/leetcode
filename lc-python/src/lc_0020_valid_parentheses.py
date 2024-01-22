@@ -4,8 +4,10 @@ def isValid(s: str) -> bool:
     found, check against the most recent opening brace.
 
     Time complexity: O(n)
-    Space complexity: O(1)
+    Space complexity: O(n)
     """
+    if len(s) % 2 == 1:
+        return False
     tokens = {"(": ")", "{": "}", "[": "]"}
     stack = []
     for ch in s:

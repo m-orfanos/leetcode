@@ -3,25 +3,6 @@ from typing import List
 from lib import max_subarray
 
 
-def max_profit(prices: List[int]) -> int:
-    """
-    Sliding window approach.
-
-    Exact same logic as the solution described in `max_profit2`.
-
-    Time complexity: O(n)
-    Space complexity: O(1)
-    """
-    lhs = 0
-    profit = 0
-    for rhs in range(1, len(prices)):
-        if prices[rhs] < prices[lhs]:
-            lhs = rhs
-        curr = prices[rhs] - prices[lhs]
-        profit = max(profit, curr)
-    return profit
-
-
 def max_profit0(prices: List[int]) -> int:
     """
     Brute force approach. This solution times out.
@@ -36,7 +17,7 @@ def max_profit0(prices: List[int]) -> int:
     return profit
 
 
-def max_profit1(prices: List[int]) -> int:
+def max_profit(prices: List[int]) -> int:
     """
     Given [7, 1, 5, 3, 6, 4]
 
@@ -60,37 +41,8 @@ def max_profit1(prices: List[int]) -> int:
 
     Time complexity: O(n)
     Space complexity: O(n)
-
-    This approach can be further improved by dropping the intermediate array, giving a
-    space complexity of O(1), but was not done here for the sack of clarity.
     """
     xs = []
     for i in range(1, len(prices)):
         xs.append(prices[i] - prices[i - 1])
     return max(0, max_subarray(xs))
-
-
-def max_profit2(prices: List[int]) -> int:
-    """
-    Traverse the array a single time while keeping track of the
-        1) maximum profit up until the "current" day/index
-        2) minimum buy price
-
-    When a smaller buy price is found, update the buy price to this value.
-
-    This is correct because the maximum profit from the previous days has already
-    been calculated AND the smaller buy price is now the hypothetical floor to the
-    next price points.
-
-    Time complexity: O(n)
-    Space complexity: O(1)
-
-    This solution is essentially a condensed version of the approach described
-    above using Kadane's algorithm.
-    """
-    profit = 0
-    buy = prices[0]
-    for sell in prices[1:]:
-        profit = max(profit, sell - buy)
-        buy = min(buy, sell)
-    return profit
