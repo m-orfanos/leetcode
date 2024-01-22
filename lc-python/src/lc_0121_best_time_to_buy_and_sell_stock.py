@@ -17,14 +17,15 @@ def max_profit(prices: List[int]) -> int:
 
     Time complexity: O(n)
     Space complexity: O(1)
+
+    This solution is essentially a condensed version of the approach described
+    below using Kadane's algorithm.
     """
     profit = 0
     buy = prices[0]
     for sell in prices[1:]:
-        if sell > buy:
-            profit = max(profit, sell - buy)
-        else:
-            buy = sell
+        profit = max(profit, sell - buy)
+        buy = min(buy, sell)
     return profit
 
 

@@ -1,7 +1,7 @@
 import unittest
 
 from lib import list_node_to_list, read_lines, chunks, to_list_int, to_list_node
-from lc_0021_merge_two_sorted_lists import mergeTwoLists
+from lc_0021_merge_two_sorted_lists import merge_two_lists
 
 
 def parse_input():
@@ -20,7 +20,7 @@ class TestMergeTwoSortedLists(unittest.TestCase):
     def test_merge_two_sorted_lists(self):
         test_cases = parse_input()
         for tc in test_cases:
-            actual = list_node_to_list(mergeTwoLists(tc[0], tc[1]))
+            actual = list_node_to_list(merge_two_lists(tc[0], tc[1]))
             expected = list_node_to_list(tc[2])
             self.assertEqual(actual, expected)
 
