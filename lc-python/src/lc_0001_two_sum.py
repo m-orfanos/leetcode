@@ -1,3 +1,4 @@
+import unittest
 from typing import List
 
 
@@ -35,3 +36,40 @@ def two_sum_brute_force(nums: List[int], target: int) -> List[int]:
                 return [i, j]
     # no solution found, should not happen
     return []
+
+
+class TestTwoSum(unittest.TestCase):
+    @staticmethod
+    def parse_input():
+        data = [
+            [[2, 7, 11, 15], 9, [0, 1]],
+            [[3, 2, 4], 6, [1, 2]],
+            [[3, 3], 6, [0, 1]],
+        ]
+        return data
+
+    def test_two_sum(self):
+        test_cases = self.parse_input()
+        for tc in test_cases:
+            nums = tc[0]
+            target = tc[1]
+            expected = tc[2]
+
+            actual = two_sum(nums, target)
+
+            self.assertEqual(actual, expected)
+
+    def test_two_sum_brute_force(self):
+        test_cases = self.parse_input()
+        for tc in test_cases:
+            nums = tc[0]
+            target = tc[1]
+            expected = tc[2]
+
+            actual = two_sum_brute_force(nums, target)
+
+            self.assertEqual(actual, expected)
+
+
+if __name__ == "__main__":
+    unittest.main()

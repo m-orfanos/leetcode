@@ -1,10 +1,11 @@
+import unittest
 from typing import Optional
 
-from lib import ListNode
+from src.shared.linked_list import ListNode, to_list_node, list_node_to_list
 
 
 def merge_two_lists(
-    list1: Optional[ListNode], list2: Optional[ListNode]
+        list1: Optional[ListNode], list2: Optional[ListNode]
 ) -> Optional[ListNode]:
     """
     Create 2 pointers, one for each list. Traverse both lists at the same time building
@@ -63,3 +64,30 @@ def merge_two_lists(
         p2 = p2.next
 
     return h
+
+
+class TestMergeTwoSortedLists(unittest.TestCase):
+    def test_merge_two_sorted_lists(self):
+        input_data = [
+            [[1, 2, 4], [1, 3, 4], [1, 1, 2, 3, 4, 4]],
+            [[], [], []],
+            [[], [0], [0]],
+            [[5], [1, 2, 4], [1, 2, 4, 5]],
+            [[1, 2, 4], [5], [1, 2, 4, 5]],
+        ]
+
+        test_cases = []
+        for data in input_data:
+            lst1 = to_list_node(data[0])
+            lst2 = to_list_node(data[1])
+            lst3 = to_list_node(data[2])
+            test_cases.append([lst1, lst2, lst3])
+
+        for tc in test_cases:
+            actual = list_node_to_list(merge_two_lists(tc[0], tc[1]))
+            expected = list_node_to_list(tc[2])
+            self.assertEqual(actual, expected)
+
+
+if __name__ == "__main__":
+    unittest.main()

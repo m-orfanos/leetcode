@@ -1,70 +1,20 @@
-from typing import List, Optional
+import unittest
+
+from src.shared.tree import invert_tree, list_tree_to_tree, tree_to_list
 
 
-class TreeNode:
-    def __init__(self, val=0, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+class TestInvertBinaryTree(unittest.TestCase):
+    def test_invert_binary_tree(self):
+        test_cases = [
+            [[4, 2, 7, 1, 3, 6, 9], [4, 7, 2, 9, 6, 3, 1]],
+            [[2, 1, 3], [2, 3, 1]],
+            [[], []],
+        ]
 
-
-def invert_tree(root: Optional[TreeNode]) -> Optional[TreeNode]:
-    if root is None:
-        return None
-
-    # swap tree nodes
-    temp = root.left
-    root.left = root.right
-    root.right = temp
-
-    # depth-first traversal
-    invert_tree(root.left)
-    invert_tree(root.right)
-
-    return root
-
-
-def list_tree_to_tree(l: List[int]) -> Optional[TreeNode]:
-    """
-    This method converts a binary tree backed up by an array (list) to
-    a binary tree modelled by a linked data-structure.
-    """
-
-    def insert_tree(val: int, node: Optional[TreeNode]) -> TreeNode:
-        if node is None:
-            return TreeNode(val)
-        if node.val < val:
-            node.right = insert_tree(val, node.right)
-        elif node.val > val:
-            node.left = insert_tree(val, node.left)
-        return node
-
-    if len(l) == 0:
-        return None
-    h = None
-    for x in l:
-        h = insert_tree(x, h)
-    return h
-
-
-def tree_to_list(root: Optional[TreeNode]) -> List[int]:
-    if root is None:
-        return []
-    l = [root.val]
-
-    # breadth-first traversal
-    q = [root.left, root.right]
-    while len(q) > 0:
-        n = q.pop(0)
-        if n is None:
-            continue
-        l.append(n.val)
-        q.append(n.left)
-        q.append(n.right)
-    return l
+        for tc in test_cases:
+            h = tree_to_list(invert_tree(list_tree_to_tree(tc[0])))
+            self.assertEqual(h, tc[1])
 
 
 if __name__ == "__main__":
-    l1 = [4, 2, 7, 1, 3, 6, 9]
-    l2 = tree_to_list(invert_tree(list_tree_to_tree(l1)))
-    print(l2)
+    unittest.main()
