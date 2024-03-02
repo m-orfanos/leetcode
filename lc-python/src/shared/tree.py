@@ -43,6 +43,8 @@ def list_tree_to_tree(l: List[int]) -> Optional[TreeNode]:
         return None
     h = None
     for x in l:
+        if x is None:
+            continue
         h = insert_tree(x, h)
     return h
 
