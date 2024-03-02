@@ -29,24 +29,25 @@ def list_tree_to_tree(l: List[int]) -> Optional[TreeNode]:
     This method converts a binary tree backed up by an array (list) to
     a binary tree modelled by a linked data-structure.
     """
-
-    def insert_tree(val: int, node: Optional[TreeNode]) -> TreeNode:
-        if node is None:
-            return TreeNode(val)
-        if node.val < val:
-            node.right = insert_tree(val, node.right)
-        elif node.val > val:
-            node.left = insert_tree(val, node.left)
-        return node
-
     if len(l) == 0:
         return None
-    h = None
-    for x in l:
-        if x is None:
-            continue
-        h = insert_tree(x, h)
-    return h
+
+    root = TreeNode(l[0])
+    q = [root]
+    i = 1
+    while i < len(l):
+        curr = q.pop(0)
+        if i < len(l):
+            if l[i] is not None:
+                curr.left = TreeNode(l[i])
+                q.append(curr.left)
+            i += 1
+        if i < len(l):
+            if l[i] is not None:
+                curr.right = TreeNode(l[i])
+                q.append(curr.right)
+            i += 1
+    return root
 
 
 def tree_to_list(root: Optional[TreeNode]) -> List[int]:
