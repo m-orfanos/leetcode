@@ -1,22 +1,34 @@
-import string
 import unittest
-
 from typing import List
-
 from src.shared.tree import TreeNode, list_tree_to_tree
 
 
 def lowest_common_ancestor(root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
-    while root:
-        if p.val < root.val > q.val:
-            root = root.left
-        elif p.val > root.val < q.val:
-            root = root.right
+    """
+    Time complexity: O(n)
+    Space complexity: O(1)
+    """
+    # take advantage of the BST's structure
+    # if p < q, then the LCA must be in the LHS of the current node.
+    # otherwise it must be on the RHS.
+    node = root
+    while node:
+        if p.val < node.val > q.val:
+            node = node.left
+        elif p.val > node.val < q.val:
+            node = node.right
         else:
-            return root
+            return node
 
 
 def lowest_common_ancestor0(root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
+    """
+    Time complexity: O(n)
+    Space complexity: O(n)
+    """
+    # build an ancestry list for each node
+    # iterate over the ancestries until a mismatch is found
+
     def find_ancestors(root: TreeNode, node: TreeNode) -> List[int]:
         ancestors = []
         curr = root
@@ -30,9 +42,11 @@ def lowest_common_ancestor0(root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNod
                 break
         return ancestors
 
+    # build ancestry lists
     ancestors_p = find_ancestors(root, p)
     ancestors_q = find_ancestors(root, q)
 
+    # traverse ancestries until a mismatch is found
     l = min(len(ancestors_p), len(ancestors_q))
     for i in range(l):
         if ancestors_p[i] == ancestors_q[i]:

@@ -3,6 +3,10 @@ import unittest
 
 
 def is_palindrome(s: str) -> bool:
+    """
+    Time complexity: O(1)
+    Space complexity: O(1)
+    """
     digits = list(map(lambda n: str(n), range(10)))
     t = ""
     for ch in s:
@@ -16,6 +20,7 @@ def is_palindrome(s: str) -> bool:
 
 
 class TestValidPalindrome(unittest.TestCase):
+
     def test_is_palindrome(self):
         test_cases = [
             ["A man, a plan, a canal: Panama", True],

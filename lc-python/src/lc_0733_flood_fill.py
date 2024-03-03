@@ -5,11 +5,15 @@ from typing import List
 def flood_fill(
     image: List[List[int]], row: int, col: int, color: int
 ) -> List[List[int]]:
+    """
+    Time complexity: O(n*m)
+    Space complexity: O(n*m)
+    """
     image_copy = [xs[:] for xs in image]
-
     color_old = image_copy[row][col]
-    to_fill = [(row, col)]
 
+    # depth-first graph traversal
+    to_fill = [(row, col)]
     while len(to_fill) > 0:
         (x, y) = to_fill.pop()
 
@@ -31,6 +35,7 @@ def flood_fill(
 
 
 class TestFloodFill(unittest.TestCase):
+
     def test_flood_fill(self):
         test_cases = [
             [

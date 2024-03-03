@@ -1,0 +1,8 @@
+{
+    "recommendations": [
+        "arr.marksman",
+        "davidanson.vscode-markdownlint",
+        "bierner.github-markdown-preview",
+        "ms-python.python"
+    ]
+}

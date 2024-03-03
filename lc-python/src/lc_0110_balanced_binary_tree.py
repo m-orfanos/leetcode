@@ -1,23 +1,35 @@
 import unittest
-from typing import List, Optional
-
+from typing import Optional
 from src.shared.tree import TreeNode, list_tree_to_tree
 
 
 def is_balanced(root: Optional[TreeNode]) -> bool:
-    def bfs(node: Optional[TreeNode]) -> int:
+    """
+    Time complexity: O(n)
+    Space complexity: O(1)
+    """
+
+    def is_balanced0(node: Optional[TreeNode]) -> int:
+        # base case
         if node is None:
             return 0
-        dl = bfs(node.left)
-        dr = bfs(node.right)
+
+        # depth-first traversal
+        dl = is_balanced0(node.left)
+        dr = is_balanced0(node.right)
+
+        # short-circuit
         if dl == -1 or dr == -1 or abs(dl - dr) > 1:
             return -1
+
+        # accumulator
         return 1 + max(dl, dr)
 
-    return bfs(root) != -1
+    return is_balanced0(root) != -1
 
 
 class TestBalancedBinaryTree(unittest.TestCase):
+
     def test_balanced_binary_tree(self):
         test_cases = [
             [[3, 9, 20, None, None, 15, 7], True],

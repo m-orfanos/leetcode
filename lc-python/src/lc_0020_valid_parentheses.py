@@ -3,12 +3,10 @@ import unittest
 
 def is_valid(s: str) -> bool:
     """
-    Keep track of the opening braces in a list/stack. When a closing brace is
-    found, check against the most recent opening brace.
-
     Time complexity: O(n)
     Space complexity: O(n)
     """
+    # use a stack to validate the correct order
     if len(s) % 2 == 1:
         return False
     tokens = {"(": ")", "{": "}", "[": "]"}

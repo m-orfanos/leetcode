@@ -1,13 +1,23 @@
+import math
 import unittest
 from typing import List
 
-from src.shared.lib import max_subarray
+
+def max_subarray(xs: List[int]) -> int:
+    """
+    Finds the largest sum of any contiguous subarray.
+    Kadane's algorithm (maximum subarray problem)
+    """
+    best_sum = -math.inf
+    current_sum = 0
+    for x in xs:
+        current_sum = max(x, current_sum + x)
+        best_sum = max(best_sum, current_sum)
+    return best_sum
 
 
 def max_profit0(prices: List[int]) -> int:
     """
-    Brute force approach. This solution times out.
-
     Time complexity: O(n^2)
     Space complexity: O(1)
     """
@@ -20,29 +30,27 @@ def max_profit0(prices: List[int]) -> int:
 
 def max_profit(prices: List[int]) -> int:
     """
-    Given [7, 1, 5, 3, 6, 4]
-
-    1) Calculate the difference between neighbouring elements
-
-        1 - 7 = -6
-        5 - 1 = +4
-        3 - 5 = -2
-        6 - 3 = +3
-        4 - 6 = -2
-
-        [-6, +4, -2, +3, -2]
-
-    This approach is easier to understand if the initial array is visualized as
-    a graph with coordinates (0,7), (1,1), etc.
-
-    Find the two points (xn,yn) and (xm,ym) that maximizes ym - yn with xn < xm.
-    This can be done by adding the immediate differences (y2-y1) + (y3-y2) + etc.
-
-    The answer is the largest sum of any contiguous segment, e.g. Kadane's algorithm.
-
     Time complexity: O(n)
     Space complexity: O(n)
     """
+    # Given [7, 1, 5, 3, 6, 4]
+    # 1) Calculate the difference between neighbouring elements
+    #   1 - 7 = -6
+    #   5 - 1 = +4
+    #   3 - 5 = -2
+    #   6 - 3 = +3
+    #   4 - 6 = -2
+    #
+    #   [-6, +4, -2, +3, -2]
+    #
+    # 2) Then find the largest sum of any contiguous segment, e.g. Kadane's algorithm.
+    #
+    # This approach is easier to understand if the initial array is visualized as
+    # a graph with coordinates (0,7), (1,1), etc.
+    #
+    # Find the two points (xn,yn) and (xm,ym) that maximize ym - yn with xn < xm.
+    #
+    # This can be done by adding the immediate differences (y2-y1) + (y3-y2) + etc.
     xs = []
     for i in range(1, len(prices)):
         xs.append(prices[i] - prices[i - 1])
@@ -52,10 +60,7 @@ def max_profit(prices: List[int]) -> int:
 class TestBestTimeToBuyAndSellStock(unittest.TestCase):
     @staticmethod
     def parse_input():
-        data = [
-            [[7, 1, 5, 3, 6, 4], 5],
-            [[7, 6, 4, 3, 1], 0]
-        ]
+        data = [[[7, 1, 5, 3, 6, 4], 5], [[7, 6, 4, 3, 1], 0]]
         return data
 
     def test_best_time_to_buy_and_sell_stock(self):

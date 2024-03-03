@@ -2,6 +2,10 @@ import unittest
 
 
 def is_anagram(s: str, t: str) -> bool:
+    """
+    Time complexity: O(n)
+    Space complexity: O(n)
+    """
     # create map from s {char:count}
     d = {}
     for ch in s:
@@ -23,6 +27,7 @@ def is_anagram(s: str, t: str) -> bool:
 
 
 class TestValidAnagram(unittest.TestCase):
+
     def test_is_anagram(self):
         test_cases = [
             ["anagram", "nagaram", True],

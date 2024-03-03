@@ -8,26 +8,10 @@ class TreeNode:
         self.right = right
 
 
-def invert_tree(root: Optional[TreeNode]) -> Optional[TreeNode]:
-    if root is None:
-        return None
-
-    # swap tree nodes
-    temp = root.left
-    root.left = root.right
-    root.right = temp
-
-    # depth-first traversal
-    invert_tree(root.left)
-    invert_tree(root.right)
-
-    return root
-
-
 def list_tree_to_tree(l: List[int]) -> Optional[TreeNode]:
     """
     This method converts a binary tree backed up by an array (list) to
-    a binary tree modelled by a linked data-structure.
+    a binary tree modeled by a linked data-structure.
     """
     if len(l) == 0:
         return None
