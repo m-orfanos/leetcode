@@ -41,7 +41,6 @@ class TestLinkedListCycle(unittest.TestCase):
             actual = has_cycle(head)
 
             self.assertEqual(actual, expected)
-            print()
 
 
 if __name__ == "__main__":
