@@ -9,6 +9,7 @@ def flood_fill(
     Time complexity: O(n*m)
     Space complexity: O(n*m)
     """
+    # https://en.wikipedia.org/wiki/Flood_fill#Stack-based_recursive_implementation_(four-way)
     image_copy = [xs[:] for xs in image]
     color_old = image_copy[row][col]
 

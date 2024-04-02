@@ -8,6 +8,7 @@ def max_subarray(xs: List[int]) -> int:
     Finds the largest sum of any contiguous subarray.
     Kadane's algorithm (maximum subarray problem)
     """
+    # https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane's_algorithm
     best_sum = -math.inf
     current_sum = 0
     for x in xs:

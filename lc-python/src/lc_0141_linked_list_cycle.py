@@ -9,6 +9,7 @@ def has_cycle(head: Optional[ListNode]) -> bool:
     Time complexity: O(n)
     Space complexity: O(1)
     """
+    # https://en.wikipedia.org/wiki/Cycle_detection#Floyd's_tortoise_and_hare
     if head is None:
         return False
     slow = head
