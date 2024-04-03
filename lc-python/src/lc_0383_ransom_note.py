@@ -1,5 +1,4 @@
 import unittest
-from typing import List
 
 
 def can_construct(ransomNote: str, magazine: str) -> bool:

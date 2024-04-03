@@ -1,5 +1,5 @@
 import unittest
-from typing import Optional, List, Tuple
+from typing import Optional, Tuple
 
 from shared.tree import TreeNode, list_tree_to_tree
 

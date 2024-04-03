@@ -19,22 +19,22 @@ def add_binary1(a: str, b: str) -> str:
     """
 
     def to_int(s: str) -> int:
+        base = 2
         ans = 0
-        factor = 1
-        for ch in s[::-1]:
-            flag = 1 if ch == "1" else 0
-            ans += flag * factor
-            factor <<= 1
+        for ch in s:
+            digit = 1 if ch == "1" else 0
+            ans = ans * base + digit
         return ans
 
     def to_bin(n: int) -> str:
         if n == 0:
             return "0"
-        ans = ""
+        base = 2
+        digits = []
         while n > 0:
-            ans += "1" if n & 0b1 else "0"
-            n >>= 1
-        return ans[::-1]
+            digits.append("1" if n % base == 1 else "0")
+            n //= base
+        return "".join(digits[::-1])
 
     aa = to_int(a)
     bb = to_int(b)
