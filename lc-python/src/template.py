@@ -1,7 +1,7 @@
 import unittest
 from typing import List, Optional
 
-from src.shared.tree import TreeNode, list_tree_to_tree, tree_to_list
+from shared.tree import TreeNode, list_tree_to_tree, tree_to_list
 from shared.linked_list import ListNode, to_list_node, list_node_to_list
 
 def problem(tree: Optional[TreeNode], 
