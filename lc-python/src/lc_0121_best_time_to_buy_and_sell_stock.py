@@ -58,6 +58,15 @@ def max_profit(prices: List[int]) -> int:
     return max(0, max_subarray(xs))
 
 
+def max_profit1(prices: List[int]) -> int:
+    best = 0
+    curr = 0
+    for i in range(1, len(prices)):
+        curr = max(0, curr + prices[i] - prices[i - 1])
+        best = max(curr, best)
+    return best
+
+
 class TestBestTimeToBuyAndSellStock(unittest.TestCase):
     @staticmethod
     def parse_input():
@@ -75,6 +84,13 @@ class TestBestTimeToBuyAndSellStock(unittest.TestCase):
         test_cases = self.parse_input()
         for i, tc in enumerate(test_cases):
             actual = max_profit0(tc[0])
+            expected = tc[1]
+            self.assertEqual(actual, expected, f"{i} {tc[0]}")
+
+    def test_best_time_to_buy_and_sell_stock1(self):
+        test_cases = self.parse_input()
+        for i, tc in enumerate(test_cases):
+            actual = max_profit1(tc[0])
             expected = tc[1]
             self.assertEqual(actual, expected, f"{i} {tc[0]}")
 
