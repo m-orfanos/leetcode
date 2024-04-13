@@ -1,22 +1,36 @@
-import string
 import unittest
 
 
 def is_palindrome(s: str) -> bool:
     """
-    Time complexity: O(1)
+    Time complexity: O(n)
+    Space complexity: O(n)
+    """
+    t = [ch.lower() for ch in s if ch.isalnum()]
+    return t == t[::-1]
+
+
+def is_palindrome0(s: str) -> bool:
+    """
+    Time complexity: O(n)
     Space complexity: O(1)
     """
-    digits = list(map(lambda n: str(n), range(10)))
-    t = ""
-    for ch in s:
-        if ch in string.ascii_lowercase:
-            t += ch
-        elif ch in string.ascii_uppercase:
-            t += ch.lower()
-        elif ch in digits:
-            t += ch
-    return t == t[::-1]
+    lhs = 0
+    rhs = len(s) - 1
+
+    while lhs <= rhs:
+        if not s[lhs].isalnum():
+            lhs += 1
+            continue
+        if not s[rhs].isalnum():
+            rhs -= 1
+            continue
+        if s[lhs].lower() != s[rhs].lower():
+            return False
+        lhs += 1
+        rhs -= 1
+
+    return True
 
 
 class TestValidPalindrome(unittest.TestCase):
@@ -26,10 +40,26 @@ class TestValidPalindrome(unittest.TestCase):
             ["A man, a plan, a canal: Panama", True],
             ["race a car", False],
             [" ", True],
-            ["1b1", True]
+            ["1b1", True],
+            ["0P", False],
         ]
         for tc in test_cases:
-            self.assertEqual(is_palindrome(tc[0]), tc[1])
+            expected = tc[1]
+            actual = is_palindrome(tc[0])
+            self.assertEqual(actual, expected)
+
+    def test_is_palindrome0(self):
+        test_cases = [
+            ["A man, a plan, a canal: Panama", True],
+            ["race a car", False],
+            [" ", True],
+            ["1b1", True],
+            ["0P", False],
+        ]
+        for tc in test_cases:
+            expected = tc[1]
+            actual = is_palindrome0(tc[0])
+            self.assertEqual(actual, expected)
 
 
 if __name__ == "__main__":
