@@ -1,6 +1,7 @@
 import unittest
 from typing import Optional
-from src.shared.linked_list import ListNode, to_list_node, list_node_to_list
+
+from shared.linked_list import ListNode, to_list_node, list_node_to_list
 
 
 def merge_two_lists(

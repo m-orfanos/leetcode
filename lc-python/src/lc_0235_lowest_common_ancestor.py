@@ -1,6 +1,7 @@
 import unittest
 from typing import List
-from src.shared.tree import TreeNode, list_tree_to_tree
+
+from shared.tree import TreeNode, list_tree_to_tree
 
 
 def lowest_common_ancestor(root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:

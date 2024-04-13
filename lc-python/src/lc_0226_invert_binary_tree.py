@@ -1,6 +1,7 @@
 import unittest
 from typing import Optional
-from src.shared.tree import TreeNode, list_tree_to_tree, tree_to_list
+
+from shared.tree import TreeNode, list_tree_to_tree, tree_to_list
 
 
 def invert_tree(root: Optional[TreeNode]) -> Optional[TreeNode]:

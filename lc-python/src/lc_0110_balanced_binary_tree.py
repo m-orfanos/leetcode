@@ -1,6 +1,7 @@
 import unittest
 from typing import Optional
-from src.shared.tree import TreeNode, list_tree_to_tree
+
+from shared.tree import TreeNode, list_tree_to_tree
 
 
 def is_balanced(root: Optional[TreeNode]) -> bool:
