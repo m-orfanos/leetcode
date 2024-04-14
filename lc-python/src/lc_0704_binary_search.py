@@ -23,9 +23,17 @@ def binary_search(nums: List[int], target: int) -> int:
 
 class TestBinarySearch(unittest.TestCase):
 
+    @staticmethod
+    def parse_input():
+        data = [
+            [[-1, 0, 3, 5, 9, 12], 9, 4],
+            [[-1, 0, 3, 5, 9, 12], 2, -1],
+        ]
+        return data
+
     def test_binary_search(self):
-        test_cases = [[[-1, 0, 3, 5, 9, 12], 9, 4], [[-1, 0, 3, 5, 9, 12], 2, -1]]
-        for i, tc in enumerate(test_cases):
+        data = self.parse_input()
+        for i, tc in enumerate(data):
             actual = binary_search(tc[0], tc[1])
             expected = tc[2]
             self.assertEqual(actual, expected, f"{i} {tc}")
