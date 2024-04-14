@@ -1,40 +1,46 @@
 import unittest
+from collections import defaultdict
 
 
-def is_anagram(s: str, t: str) -> bool:
+def is_anagram0(s: str, t: str) -> bool:
     """
     Time complexity: O(n)
     Space complexity: O(n)
     """
-    # create map from s {char:count}
-    d = {}
-    for ch in s:
-        if ch in d:
-            d[ch] += 1
-        else:
-            d[ch] = 1
+    if len(s) != len(t):
+        return False
 
-    # decrement map count depending on t
-    for ch in t:
-        if ch in d:
-            d[ch] -= 1
-        else:
-            # char does not exist in s
-            return False
+    d = defaultdict(int)
+    for i in range(len(s)):
+        d[s[i]] += 1
+        d[t[i]] -= 1
 
-    # validate all chars have been used
     return all(map(lambda x: x == 0, d.values()))
+
+
+def is_anagram1(s: str, t: str) -> bool:
+    return sorted(s) == sorted(t)
 
 
 class TestValidAnagram(unittest.TestCase):
 
-    def test_is_anagram(self):
-        test_cases = [
+    @staticmethod
+    def parse_input():
+        data = [
             ["anagram", "nagaram", True],
             ["rat", "car", False],
         ]
+        return data
+
+    def test_is_anagram0(self):
+        test_cases = self.parse_input()
         for tc in test_cases:
-            self.assertEqual(is_anagram(tc[0], tc[1]), tc[2])
+            self.assertEqual(is_anagram0(tc[0], tc[1]), tc[2])
+
+    def test_is_anagram1(self):
+        test_cases = self.parse_input()
+        for tc in test_cases:
+            self.assertEqual(is_anagram1(tc[0], tc[1]), tc[2])
 
 
 if __name__ == "__main__":
