@@ -7,17 +7,17 @@ from shared.tree import TreeNode, list_tree_to_tree
 def is_balanced(root: Optional[TreeNode]) -> bool:
     """
     Time complexity: O(n)
-    Space complexity: O(1)
+    Space complexity: O(n)
     """
 
-    def is_balanced0(node: Optional[TreeNode]) -> int:
+    def dfs(node: Optional[TreeNode]) -> int:
         # base case
         if node is None:
             return 0
 
         # depth-first traversal
-        dl = is_balanced0(node.left)
-        dr = is_balanced0(node.right)
+        dl = dfs(node.left)
+        dr = dfs(node.right)
 
         # short-circuit
         if dl == -1 or dr == -1 or abs(dl - dr) > 1:
@@ -26,7 +26,7 @@ def is_balanced(root: Optional[TreeNode]) -> bool:
         # accumulator
         return 1 + max(dl, dr)
 
-    return is_balanced0(root) != -1
+    return dfs(root) != -1
 
 
 class TestBalancedBinaryTree(unittest.TestCase):

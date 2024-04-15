@@ -9,23 +9,26 @@ def invert_tree0(root: Optional[TreeNode]) -> Optional[TreeNode]:
     Time complexity: O(n)
     Space complexity: O(n)
     """
+
     # traverse the tree using depth-first traversal
     # when visiting a node, swap its leaves
+    def dfs(node: Optional[TreeNode]) -> Optional[TreeNode]:
+        # base case
+        if node is None:
+            return None
 
-    # base case
-    if root is None:
-        return None
+        # swap tree nodes
+        temp = node.left
+        node.left = node.right
+        node.right = temp
 
-    # swap tree nodes
-    temp = root.left
-    root.left = root.right
-    root.right = temp
+        # traverse
+        dfs(node.left)
+        dfs(node.right)
 
-    # depth-first traversal
-    invert_tree0(root.left)
-    invert_tree0(root.right)
+        return node
 
-    return root
+    return dfs(root)
 
 
 def invert_tree1(root: Optional[TreeNode]) -> Optional[TreeNode]:
@@ -36,6 +39,8 @@ def invert_tree1(root: Optional[TreeNode]) -> Optional[TreeNode]:
     s = [root]
     while s:
         n = s.pop()
+
+        # base case
         if n is None:
             continue
 
@@ -44,6 +49,7 @@ def invert_tree1(root: Optional[TreeNode]) -> Optional[TreeNode]:
         n.left = n.right
         n.right = tmp
 
+        # traverse
         s.append(n.left)
         s.append(n.right)
 
@@ -58,6 +64,8 @@ def invert_tree2(root: Optional[TreeNode]) -> Optional[TreeNode]:
     q = [root]
     while q:
         n = q.pop(0)
+
+        # base case
         if n is None:
             continue
 
@@ -66,6 +74,7 @@ def invert_tree2(root: Optional[TreeNode]) -> Optional[TreeNode]:
         n.left = n.right
         n.right = tmp
 
+        # traverse
         q.append(n.left)
         q.append(n.right)
 

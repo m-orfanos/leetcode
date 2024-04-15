@@ -6,8 +6,8 @@ def can_construct(ransomNote: str, magazine: str) -> bool:
     Time complexity: O(n)
 
     Space complexity: O(1)
-    While we build a map, it's essentially O(1) since the map is a histogramme
-    of english letters to a count.
+    While we build a map, it's essentially O(1) since the map is a histogram
+    of English letters to a count.
     """
     if len(ransomNote) > len(magazine):
         return False

@@ -67,6 +67,7 @@ def climb_stairs_combinatorics(n: int) -> int:
         if k == 1:
             mem_comb[(n, k)] = n
             return n
+
         # compute multinomial coefficient
         # nCk = n!/k!/(n-k)!
         mem_comb[(n, k)] = fact(n) // fact(k) // fact(n - k)

@@ -56,6 +56,9 @@ def add_binary2(a: str, b: str) -> str:
     ans = []
     carry_bit = 0
     n = min(len(a), len(b))
+
+    # add two numbers bit by bit
+    # if b > a, ignores the extra bits (if applicable)
     for i in range(n):
         aa = 1 if a[len(a) - 1 - i] == "1" else 0
         bb = 1 if b[len(b) - 1 - i] == "1" else 0
@@ -66,6 +69,7 @@ def add_binary2(a: str, b: str) -> str:
 
         carry_bit = cc >> 0b1
 
+    # add remaining digits of b (if applicable)
     for i in range(n, len(b)):
         bb = 1 if b[len(b) - 1 - i] == "1" else 0
         cc = bb + carry_bit  # 0, 1 or 2
