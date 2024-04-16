@@ -12,21 +12,19 @@ def diameter_binary_tree(root: Optional[TreeNode]) -> int:
 
     # NOTE: The height of a node is the number of edges present in the longest path
     # connecting that node to a leaf node.
-    def diameter0(node: Optional[TreeNode], diameter: int) -> Tuple[int, int]:
+    def dfs(node: Optional[TreeNode]) -> Tuple[int, int]:
         if not node:
-            return (0, diameter)
+            return (0, 0)
 
-        lhs_height, lhs_diameter = diameter0(node.left, diameter)
-        rhs_height, rhs_diameter = diameter0(node.right, diameter)
+        lh, ld = dfs(node.left)
+        rh, rd = dfs(node.right)
 
-        height = 1 + max(lhs_height, rhs_height)
-
-        diameter = max(lhs_height + rhs_height, lhs_diameter, rhs_diameter, diameter)
+        height = 1 + max(lh, rh)
+        diameter = max(lh + rh, ld, rd)
 
         return (height, diameter)
 
-    _, diameter = diameter0(root, 0)
-    return diameter
+    return dfs(root)[1]
 
 
 class TestDiameterBinaryTree(unittest.TestCase):

@@ -10,12 +10,12 @@ def maximum_depth_binary_tree_recursive(root: Optional[TreeNode]) -> int:
     Space complexity: O(n)
     """
 
-    def depth(node: Optional[TreeNode], d=0) -> int:
+    def depth(node: Optional[TreeNode]) -> int:
         if not node:
-            return d
-        lhs = depth(node.left, d)
-        rhs = depth(node.right, d)
-        return 1 + max(lhs, rhs)
+            return 0
+        ld = depth(node.left)
+        rd = depth(node.right)
+        return 1 + max(ld, rd)
 
     return depth(root)
 
@@ -25,17 +25,16 @@ def maximum_depth_binary_tree_dfs(root: Optional[TreeNode]) -> int:
     Time complexity: O(n)
     Space complexity: O(n)
     """
-    # dfs = go deep, retreat, repeat
-    depth = 0
+    max_depth = 0
     stack = [(root, 1)]
     while len(stack) > 0:
-        node, d = stack.pop()
+        node, depth = stack.pop()
         if node.left:
-            stack.append((node.left, d + 1))
+            stack.append((node.left, depth + 1))
         if node.right:
-            stack.append((node.right, d + 1))
-        depth = max(d, depth)
-    return depth
+            stack.append((node.right, depth + 1))
+        max_depth = max(depth, max_depth)
+    return max_depth
 
 
 def maximum_depth_binary_tree_bfs(root: Optional[TreeNode]) -> int:
@@ -43,8 +42,8 @@ def maximum_depth_binary_tree_bfs(root: Optional[TreeNode]) -> int:
     Time complexity: O(n)
     Space complexity: O(n)
     """
-    # bfs = one-level at a time
-    depth = 0
+    # bfs, one-level at a time
+    max_depth = 0
     queue = [root]
     while len(queue) > 0:
         size = len(queue)
@@ -55,8 +54,8 @@ def maximum_depth_binary_tree_bfs(root: Optional[TreeNode]) -> int:
             if node.right:
                 queue.append(node.right)
             size -= 1
-        depth += 1
-    return depth
+        max_depth += 1
+    return max_depth
 
 
 class TestMaximumDepthBinaryTree(unittest.TestCase):

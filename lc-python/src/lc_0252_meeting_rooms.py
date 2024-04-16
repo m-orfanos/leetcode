@@ -11,15 +11,15 @@ def can_attend_naive(meetings: List[List[int]]) -> bool:
     def has_overlap(interval1: Tuple[int, int], interval2: Tuple[int, int]) -> bool:
         lhs = max(interval1[0], interval2[0])
         rhs = min(interval1[1], interval2[1])
-        return lhs <= rhs
+        return lhs < rhs
 
-    # need to determine if meetings overlap
     for i in range(len(meetings)):
         meeting1 = meetings[i]
         for j in range(i + 1, len(meetings)):
             meeting2 = meetings[j]
             if has_overlap(meeting1, meeting2):
                 return False
+
     return True
 
 
@@ -28,15 +28,13 @@ def can_attend(meetings: List[List[int]]) -> bool:
     Time complexity: O(n log n)
     Space complexity: O(log n)
     """
-    # need to determine if meetings overlap
-
     # sort by start time
     meetings.sort(key=lambda x: x[0])
 
     for i in range(1, len(meetings)):
-        meeting1_end = meetings[i - 1][1]
-        meeting2_start = meetings[i][0]
-        if meeting1_end > meeting2_start:
+        m1_end = meetings[i - 1][1]
+        m2_start = meetings[i][0]
+        if m2_start < m1_end:
             return False
 
     return True
@@ -61,7 +59,7 @@ class TestMeetingRooms(unittest.TestCase):
 
             self.assertEqual(actual, expected)
 
-    def test_meeting_rooms(self):
+    def test_meeting_rooms1(self):
         test_cases = self.parse_input()
         for tc in test_cases:
             xs = tc[0]
