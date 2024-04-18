@@ -10,13 +10,17 @@ def is_palindrome0(head: Optional[ListNode]) -> bool:
     Space complexity: O(n)
     """
 
-    def equals(n1: Optional[ListNode], n2: Optional[ListNode]) -> bool:
+    def equals(
+        n1: Optional[ListNode],
+        n2: Optional[ListNode],
+    ) -> bool:
         if n1 is None and n2 is None:
             return True
         return n1.val == n2.val and equals(n1.next, n2.next)
 
     def reverse(
-        n1: Optional[ListNode], n2: Optional[ListNode] = None
+        n1: Optional[ListNode],
+        n2: Optional[ListNode] = None,
     ) -> Optional[ListNode]:
         # does NOT mutate the original list
         # object creation in python is REALLY REALLY REALLY slow...
@@ -25,9 +29,7 @@ def is_palindrome0(head: Optional[ListNode]) -> bool:
             return n2
         return reverse(n1.next, ListNode(n1.val, n2))
 
-    reversed = reverse(head)
-
-    return equals(head, reversed)
+    return equals(head, reverse(head))
 
 
 def is_palindrome1(head: Optional[ListNode]) -> bool:
@@ -51,6 +53,8 @@ def is_palindrome1(head: Optional[ListNode]) -> bool:
             return False
 
         curr = curr.next
+
+        # compare only half
         cnt -= 2
 
     return True
