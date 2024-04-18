@@ -5,7 +5,7 @@ from typing import List
 def longest_common_prefix0(ws: List[str]) -> str:
     """
     Time complexity: O(kn)
-    Space complexity: O(k)
+    Space complexity: O(1)
 
     where
     - n is the number of words, and
@@ -13,13 +13,19 @@ def longest_common_prefix0(ws: List[str]) -> str:
     """
     if len(ws) == 0:
         return ""
+
+    # length of shortest word
     l = min(map(len, ws))
-    for i in range(l):
-        ch = ws[0][i]
-        for w in ws[1:]:
-            if ch != w[i]:
-                return ws[0][:i]
-    # occurs when len(ws) == 1
+
+    for k in range(l):
+        ch = ws[0][k]
+        for i in range(1, len(ws)):
+            w = ws[i]
+            if ch != w[k]:
+                return ws[0][:k]
+
+    # occurs when ws has only 1 element or
+    # when all elements are the empty string
     return ws[0][:l]
 
 
