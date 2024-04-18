@@ -8,7 +8,7 @@ from typing import List
 def move_zeroes(nums: List[int]) -> None:
     """
     Time complexity: O(n log n)
-    Space complexity: O(n log n)
+    Space complexity: O(n)
     """
 
     def zeros_are_massive(a: int, b: int) -> int:
