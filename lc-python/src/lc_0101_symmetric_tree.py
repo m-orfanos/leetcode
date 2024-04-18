@@ -5,7 +5,10 @@ from shared.tree import TreeNode, list_tree_to_tree
 
 
 def is_symmetric0(root: Optional[TreeNode]) -> bool:
-
+    """
+    Time complexity: O(n)
+    Space complexity: O(n)
+    """
     def traverse(n1: Optional[TreeNode], n2: Optional[TreeNode]) -> bool:
         if n1 is None and n2 is None:
             return True
@@ -27,10 +30,12 @@ def is_symmetric1(root: Optional[TreeNode]) -> bool:
     while q:
         n1 = q.pop(0)
         n2 = q.pop(0)
+
         if n1 is None and n2 is None:
             continue
         if n1 is None or n2 is None or n1.val != n2.val:
             return False
+
         q.append(n1.left)
         q.append(n2.right)
         q.append(n1.right)
