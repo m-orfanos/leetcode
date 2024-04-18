@@ -4,8 +4,9 @@ from typing import List
 
 def count_bits0(n: int) -> List[int]:
     """
-    Time complexity: O(n log n)
+    Time complexity: O(n log b)
     Space complexity: O(n)
+    where `b` is the number of non-zero bits for a given number 0-n
     """
 
     def nb_bits(x: int) -> int:
