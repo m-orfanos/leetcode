@@ -3,8 +3,8 @@ import unittest
 
 def hamming_weight0(n: int) -> int:
     """
-    Time complexity: O(n)
-    Space complexity: O(n)
+    Time complexity: O(b)
+    Space complexity: O(b)
     """
     cnt = 0
     while n > 0:
@@ -15,8 +15,8 @@ def hamming_weight0(n: int) -> int:
 
 def hamming_weight(n: int) -> int:
     """
-    Time complexity: O(n)
-    Space complexity: O(n)
+    Time complexity: O(b)
+    Space complexity: O(b)
     """
     # pointless bit fiddling that should be optimized by
     # the compiler/interpreter imo
