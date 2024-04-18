@@ -29,7 +29,7 @@ class Test(unittest.TestCase):
 
             actual = problem(a, b)
 
-            self.assertEqual(actual, expected)
+            self.assertEqual(actual, expected, f"{a} {b} {expected}")
 
 
 if __name__ == "__main__":
