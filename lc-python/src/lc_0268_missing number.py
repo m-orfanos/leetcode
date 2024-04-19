@@ -22,6 +22,20 @@ def missing_number(nums: List[int]) -> int:
     return n_sum - sum(nums)
 
 
+def missing_number1(nums: List[int]) -> int:
+    """
+    Time complexity: O(n log n)
+    Space complexity: O(n)
+    """
+    nums.sort()
+    missing = 0
+    for n in nums:
+        if n != missing:
+            return missing
+        missing += 1
+    return missing
+
+
 class Test(unittest.TestCase):
     @staticmethod
     def parse_input():
@@ -34,7 +48,7 @@ class Test(unittest.TestCase):
         ]
         return data
 
-    def test_(self):
+    def test_missing_number(self):
         test_cases = self.parse_input()
         for tc in test_cases:
             a = tc[0]
@@ -43,6 +57,16 @@ class Test(unittest.TestCase):
             actual = missing_number(a)
 
             self.assertEqual(actual, expected)
+
+    def test_missing_number1(self):
+        test_cases = self.parse_input()
+        for tc in test_cases:
+            a = tc[0]
+            expected = tc[1]
+
+            actual = missing_number1(a)
+
+            self.assertEqual(actual, expected, f"{a} {expected}")
 
 
 if __name__ == "__main__":
