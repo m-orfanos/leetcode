@@ -20,14 +20,14 @@ def is_subtree0(root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
         else:
             return is_same(h1.left, h2.left) and is_same(h1.right, h2.right)
 
-    def dfs(h1: Optional[TreeNode], h2: Optional[TreeNode]) -> bool:
+    def traverse(h1: Optional[TreeNode], h2: Optional[TreeNode]) -> bool:
         if h1 is None:
             return False
         if is_same(h1, h2):
             return True
-        return dfs(h1.left, h2) or dfs(h1.right, h2)
+        return traverse(h1.left, h2) or traverse(h1.right, h2)
 
-    return dfs(root, subRoot)
+    return traverse(root, subRoot)
 
 
 def is_subtree1(root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
@@ -72,7 +72,8 @@ def is_subtree2(root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
     Space complexity: O(max(n,m))
     """
 
-    def dfs(h: Optional[TreeNode]) -> List[int]:
+    # build array from tree
+    def traverse(h: Optional[TreeNode]) -> List[int]:
         s = []
         q = [h]
         while q:
@@ -131,7 +132,7 @@ def is_subtree2(root: Optional[TreeNode], subRoot: Optional[TreeNode]) -> bool:
 
         return False
 
-    return kmp_search(dfs(subRoot), dfs(root))
+    return kmp_search(traverse(subRoot), traverse(root))
 
 
 class TestSubtreeofAnotherTree(unittest.TestCase):
