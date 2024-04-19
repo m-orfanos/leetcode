@@ -12,15 +12,15 @@ def sorted_array_to_binary_search_tree0(nums: List[int]) -> Optional[TreeNode]:
 
     # 1,2,3
     # 1,2,3,4
-    def dfs(nums, low, high) -> Optional[TreeNode]:
+    def traverse(nums, low, high) -> Optional[TreeNode]:
         if low > high:
             return None
         mid = low + (high - low) // 2
-        left = dfs(nums, low, mid - 1)
-        right = dfs(nums, mid + 1, high)
+        left = traverse(nums, low, mid - 1)
+        right = traverse(nums, mid + 1, high)
         return TreeNode(nums[mid], left, right)
 
-    return dfs(nums, 0, len(nums) - 1)
+    return traverse(nums, 0, len(nums) - 1)
 
 
 def sorted_array_to_binary_search_tree1(nums: List[int]) -> Optional[TreeNode]:
