@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"deno.enable": true,
+		"deno.lint": true,
+		"editor.formatOnSave": true,
+		"editor.formatOnSaveMode": "modifications",
+		"[typescript]": {
+			"editor.defaultFormatter": "denoland.vscode-deno"
+		}
+	},
+}
