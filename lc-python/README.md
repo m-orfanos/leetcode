@@ -1,4 +1,6 @@
-# LeetCode python
+# README
+
+Yet Another LeetCode solutions repository… in python.
 
 ## Prerequisites
 
