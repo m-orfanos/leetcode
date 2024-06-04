@@ -1,6 +1,6 @@
 import { assertEquals } from "https://deno.land/std@0.224.0/assert/assert_equals.ts";
 
-function two_sum(nums: number[], target: number) {
+function two_sum(nums: number[], target: number): number[] {
   const nums_map: Map<number, number> = new Map();
   for (let i = 0; i < nums.length; i += 1) {
     if (nums_map.has(nums[i])) {
