@@ -32,7 +32,7 @@ function is_valid(s: string): boolean {
   return stack.length === 0;
 }
 
-Deno.test("0020 Valid Parenthesis", async (t) => {
+Deno.test("0020 Valid Parenthesis", () => {
   const test_cases: [string, boolean][] = [
     ["()", true],
     ["()[]{}", true],
@@ -42,15 +42,13 @@ Deno.test("0020 Valid Parenthesis", async (t) => {
   ];
 
   for (let i = 0; i < test_cases.length; i += 1) {
-    await t.step(`Test case #${i}`, () => {
-      const test_case = test_cases[i];
+    const test_case = test_cases[i];
 
-      const str = test_case[0];
-      const expected = test_case[1];
+    const str = test_case[0];
+    const expected = test_case[1];
 
-      const actual = is_valid(str);
+    const actual = is_valid(str);
 
-      assertEquals(actual, expected);
-    });
+    assertEquals(actual, expected);
   }
 });

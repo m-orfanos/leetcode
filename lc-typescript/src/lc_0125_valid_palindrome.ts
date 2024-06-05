@@ -87,7 +87,7 @@ function is_palindrome2(s: string): boolean {
     return true;
 }
 
-Deno.test("0125 Valid Palindrome", async (t) => {
+Deno.test("0125 Valid Palindrome", () => {
     const test_cases: [string, boolean][] = [
         ["A man, a plan, a canal: Panama", true],
         ["race a car", false],
@@ -98,26 +98,16 @@ Deno.test("0125 Valid Palindrome", async (t) => {
     ];
 
     for (let i = 0; i < test_cases.length; i += 1) {
-        await t.step(`Sanitize + reverse - Test case #${i}`, () => {
-            const test_case = test_cases[i];
+        const test_case = test_cases[i];
 
-            const s = test_case[0];
-            const expected = test_case[1];
+        const s = test_case[0];
 
-            const actual = is_palindrome1(s);
-            assertEquals(actual, expected);
-        });
-    }
+        const actual1 = is_palindrome1(s);
+        const actual2 = is_palindrome2(s);
 
-    for (let i = 0; i < test_cases.length; i += 1) {
-        await t.step(`Two pointers - Test case #${i}`, () => {
-            const test_case = test_cases[i];
+        const expected = test_case[1];
 
-            const s = test_case[0];
-            const expected = test_case[1];
-
-            const actual = is_palindrome2(s);
-            assertEquals(actual, expected);
-        });
+        assertEquals(actual1, expected);
+        assertEquals(actual2, expected);
     }
 });

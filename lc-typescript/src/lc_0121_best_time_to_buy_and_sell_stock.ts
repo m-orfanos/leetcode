@@ -21,21 +21,19 @@ function max_profit(prices: number[]): number {
     return best;
 }
 
-Deno.test("0121 Best Time to Buy and Sell Stocks", async (t) => {
+Deno.test("0121 Best Time to Buy and Sell Stocks", () => {
     const test_cases: [number[], number][] = [
         [[7, 1, 5, 3, 6, 4], 5],
         [[7, 6, 4, 3, 1], 0],
     ];
 
     for (let i = 0; i < test_cases.length; i += 1) {
-        await t.step(`Test case #${i}`, () => {
-            const test_case = test_cases[i];
+        const test_case = test_cases[i];
 
-            const nums = test_case[0];
-            const expected = test_case[1];
+        const nums = test_case[0];
+        const expected = test_case[1];
 
-            const actual = max_profit(nums);
-            assertEquals(actual, expected);
-        });
+        const actual = max_profit(nums);
+        assertEquals(actual, expected);
     }
 });

@@ -54,7 +54,7 @@ function merge_two_lists2(list1: ListNode | null, list2: ListNode | null): ListN
     return ans.next;
 };
 
-Deno.test("0021 Merge Two Sorted Lists", async (t) => {
+Deno.test("0021 Merge Two Sorted Lists", () => {
     const test_cases = [
         [[1, 2, 4], [1, 3, 4], [1, 1, 2, 3, 4, 4]],
         [[], [], []],
@@ -64,40 +64,36 @@ Deno.test("0021 Merge Two Sorted Lists", async (t) => {
     ];
 
     for (let i = 0; i < test_cases.length; i += 1) {
-        await t.step(`Convert to array, sort & back - Test case #${i}`, () => {
-            const test_case = test_cases[i];
+        const test_case = test_cases[i];
 
-            const arr1 = test_case[0];
-            const arr2 = test_case[1];
+        const arr1 = test_case[0];
+        const arr2 = test_case[1];
 
-            const list1 = array_to_linked_list(arr1);
-            const list2 = array_to_linked_list(arr2);
+        const list1 = array_to_linked_list(arr1);
+        const list2 = array_to_linked_list(arr2);
 
-            const expected = test_case[2];
+        const expected = test_case[2];
 
-            const list3 = merge_two_lists1(list1, list2);
-            const actual = linked_list_to_array(list3);
+        const list3 = merge_two_lists1(list1, list2);
+        const actual = linked_list_to_array(list3);
 
-            assertEquals(actual, expected);
-        });
+        assertEquals(actual, expected);
     }
 
     for (let i = 0; i < test_cases.length; i += 1) {
-        await t.step(`Splice nodes one at a time - Test case #${i}`, () => {
-            const test_case = test_cases[i];
+        const test_case = test_cases[i];
 
-            const arr1 = test_case[0];
-            const arr2 = test_case[1];
+        const arr1 = test_case[0];
+        const arr2 = test_case[1];
 
-            const list1 = array_to_linked_list(arr1);
-            const list2 = array_to_linked_list(arr2);
+        const list1 = array_to_linked_list(arr1);
+        const list2 = array_to_linked_list(arr2);
 
-            const expected = test_case[2];
+        const expected = test_case[2];
 
-            const list3 = merge_two_lists2(list1, list2);
-            const actual = linked_list_to_array(list3);
+        const list3 = merge_two_lists2(list1, list2);
+        const actual = linked_list_to_array(list3);
 
-            assertEquals(actual, expected);
-        });
+        assertEquals(actual, expected);
     }
 });
