@@ -42,12 +42,12 @@ export class TreeNode {
     }
 }
 
-export function array_to_tree(arr: number[]): TreeNode | null {
+export function array_to_tree(arr: (number | null)[]): TreeNode | null {
     if (arr.length == 0) {
         return null;
     }
 
-    const t = new TreeNode(arr[0]);
+    const t = new TreeNode(arr[0]!);
     if (arr.length === 1) {
         return t;
     }
@@ -60,11 +60,17 @@ export function array_to_tree(arr: number[]): TreeNode | null {
             continue;
         }
 
-        n.left = new TreeNode(arr[i]);
-        n.right = new TreeNode(arr[i + 1]);
+        const left = arr[i];
+        if (left != null) {
+            n.left = new TreeNode(left);
+            q.push(n.left);
+        }
 
-        q.push(n.left);
-        q.push(n.right);
+        const right = arr[i + 1];
+        if (right != null) {
+            n.right = new TreeNode(right);
+            q.push(n.right);
+        }
 
         i += 2;
     }
