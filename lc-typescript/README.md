@@ -12,10 +12,25 @@ curl -fsSL https://deno.land/install.sh | sh
 
 ## Getting started
 
-Run unit tests via the helper script.
+Run the unit tests for a problem using the helper script.
 
 ```shell
-./run_tests.sh
+./test.sh 733
+```
+
+sample output
+
+```shell
+running 1 test from ./src/lc_0733_flood_fill.ts
+0733 Flood Fill ... ok (0ms)
+
+ok | 1 passed | 0 failed (1ms)
+```
+
+Run ALL the unit tests via the helper script.
+
+```shell
+./run_all_tests.sh
 ```
 
 sample output
