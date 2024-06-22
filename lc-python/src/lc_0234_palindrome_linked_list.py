@@ -39,42 +39,36 @@ def is_palindrome1(head: Optional[ListNode]) -> bool:
     """
 
     stack = []
-    p = head
-    while p:
-        stack.append(p.val)
-        p = p.next
+    slow = head
+    fast = head
+    while slow and fast:
+        if fast.next is None:
+            # list has odd-length, skips middle element
+            slow = slow.next
+            break
+        fast = fast.next.next
 
-    cnt = len(stack)
-    curr = head
-    while stack and cnt >= 0:
-        n1 = curr.val
+        stack.append(slow.val)
+        slow = slow.next
+
+    while slow:
+        n1 = slow.val
         n2 = stack.pop()
         if n1 != n2:
             return False
-
-        curr = curr.next
-
-        # compare only half
-        cnt -= 2
+        slow = slow.next
 
     return True
 
 
 def is_palindrome2(head: Optional[ListNode]) -> bool:
     """
+    This approach mutates the original list.
+
     Time complexity: O(n)
     Space complexity: O(1)
     """
 
-    # []
-    if head is None:
-        return False
-
-    # [1]
-    if head.next is None:
-        return True
-
-    # [1, 2, 3, ...]
     slow = head
     fast = head
     rev = None
@@ -85,7 +79,6 @@ def is_palindrome2(head: Optional[ListNode]) -> bool:
             break
         fast = fast.next.next
 
-        # NOTE: mutates the original list
         # head will point to the tail once done
         # append to rev
         tmp = slow.next
