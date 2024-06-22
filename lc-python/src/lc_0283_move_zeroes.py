@@ -60,13 +60,14 @@ def move_zeroes3(xs: List[int]) -> None:
     Time complexity: O(n)
     Space complexity: O(1)
     """
-    non_zero_cnt = 0
+    j = 0
     for i in range(len(xs)):
         if xs[i] != 0:
-            xs[non_zero_cnt] = xs[i]
-            non_zero_cnt += 1
+            xs[j] = xs[i]
+            j += 1
 
-    for i in range(non_zero_cnt, len(xs)):
+    # set remaining values to zero
+    for i in range(j, len(xs)):
         xs[i] = 0
 
 
