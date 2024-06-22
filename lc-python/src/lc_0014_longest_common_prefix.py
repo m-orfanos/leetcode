@@ -5,7 +5,7 @@ from typing import List
 def longest_common_prefix0(ws: List[str]) -> str:
     """
     Time complexity: O(kn)
-    Space complexity: O(1)
+    Space complexity: O(k)
 
     where
     - n is the number of words, and
