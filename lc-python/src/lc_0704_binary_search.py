@@ -11,14 +11,14 @@ def binary_search(nums: List[int], target: int) -> int:
     high = len(nums) - 1
     while low <= high:
         # avoids upcasting (or int overflow in other languages)
-        mid = low + (high - low) // 2
+        mid = high - (high - low) // 2
         if nums[mid] < target:
             low = mid + 1
         elif nums[mid] > target:
             high = mid - 1
         else:
             return mid
-    return -1
+    return -(low + 1)
 
 
 class TestBinarySearch(unittest.TestCase):
@@ -27,7 +27,7 @@ class TestBinarySearch(unittest.TestCase):
     def parse_input():
         data = [
             [[-1, 0, 3, 5, 9, 12], 9, 4],
-            [[-1, 0, 3, 5, 9, 12], 2, -1],
+            [[-1, 0, 3, 5, 9, 12], 2, -3],
         ]
         return data
 
