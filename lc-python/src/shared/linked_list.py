@@ -7,7 +7,7 @@ class ListNode:
         self.next = next
 
 
-def to_list_node(xs: List) -> Optional[ListNode]:
+def list_to_list_node(xs: List) -> Optional[ListNode]:
     h = None
     for x in xs:
         if h is None:

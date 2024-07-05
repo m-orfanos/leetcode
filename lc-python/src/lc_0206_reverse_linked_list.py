@@ -1,7 +1,7 @@
 import unittest
 from typing import List, Optional
 
-from shared.linked_list import ListNode, to_list_node, list_node_to_list
+from shared.linked_list import ListNode, list_to_list_node, list_node_to_list
 
 
 def reverse_linked_list_recursive(head: Optional[ListNode]) -> Optional[ListNode]:
@@ -55,7 +55,7 @@ class TestReverseLinkedList(unittest.TestCase):
     def test_reverse_linked_list_recursive(self):
         test_cases = self.parse_input()
         for tc in test_cases:
-            xs = to_list_node(tc[0])
+            xs = list_to_list_node(tc[0])
             expected = tc[1]
 
             actual = list_node_to_list(reverse_linked_list_recursive(xs))
@@ -65,7 +65,7 @@ class TestReverseLinkedList(unittest.TestCase):
     def test_reverse_linked_list_iterative(self):
         test_cases = self.parse_input()
         for tc in test_cases:
-            xs = to_list_node(tc[0])
+            xs = list_to_list_node(tc[0])
             expected = tc[1]
 
             t = reverse_linked_list_iterative(xs)

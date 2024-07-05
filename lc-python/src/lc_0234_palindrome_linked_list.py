@@ -1,7 +1,7 @@
 import unittest
 from typing import Optional
 
-from shared.linked_list import ListNode, to_list_node
+from shared.linked_list import ListNode, list_to_list_node
 
 
 def is_palindrome0(head: Optional[ListNode]) -> bool:
@@ -109,7 +109,7 @@ class TestPalindromeLinkedList(unittest.TestCase):
     def test_palindrome_linked_list0(self):
         test_cases = self.parse_input()
         for tc in test_cases:
-            h = to_list_node(tc[0])
+            h = list_to_list_node(tc[0])
             expected = tc[1]
 
             actual = is_palindrome0(h)
@@ -119,7 +119,7 @@ class TestPalindromeLinkedList(unittest.TestCase):
     def test_palindrome_linked_list1(self):
         test_cases = self.parse_input()
         for tc in test_cases:
-            h = to_list_node(tc[0])
+            h = list_to_list_node(tc[0])
             expected = tc[1]
 
             actual = is_palindrome1(h)
@@ -129,7 +129,7 @@ class TestPalindromeLinkedList(unittest.TestCase):
     def test_palindrome_linked_list2(self):
         test_cases = self.parse_input()
         for tc in test_cases:
-            h = to_list_node(tc[0])
+            h = list_to_list_node(tc[0])
             expected = tc[1]
 
             actual = is_palindrome2(h)

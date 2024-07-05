@@ -1,7 +1,7 @@
 import unittest
 from typing import Optional
 
-from shared.linked_list import ListNode, to_list_node, list_node_to_list
+from shared.linked_list import ListNode, list_to_list_node, list_node_to_list
 
 
 def middle_linked_list_recursive(head: Optional[ListNode]) -> Optional[ListNode]:
@@ -50,7 +50,7 @@ class TestMiddleLinkedList(unittest.TestCase):
     def test_middle_linked_list_recursive(self):
         test_cases = self.parse_input()
         for tc in test_cases:
-            xs = to_list_node(tc[0])
+            xs = list_to_list_node(tc[0])
             expected = tc[1]
 
             actual = list_node_to_list(middle_linked_list_recursive(xs))
@@ -60,7 +60,7 @@ class TestMiddleLinkedList(unittest.TestCase):
     def test_middle_linked_list(self):
         test_cases = self.parse_input()
         for tc in test_cases:
-            xs = to_list_node(tc[0])
+            xs = list_to_list_node(tc[0])
             expected = tc[1]
 
             actual = list_node_to_list(middle_linked_list(xs))

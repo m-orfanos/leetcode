@@ -1,7 +1,7 @@
 import unittest
 from typing import Optional
 
-from shared.linked_list import ListNode, to_list_node, list_node_to_list
+from shared.linked_list import ListNode, list_to_list_node, list_node_to_list
 
 
 def merge_two_lists(
@@ -76,9 +76,9 @@ class TestMergeTwoSortedLists(unittest.TestCase):
 
         test_cases = []
         for data in input_data:
-            lst1 = to_list_node(data[0])
-            lst2 = to_list_node(data[1])
-            lst3 = to_list_node(data[2])
+            lst1 = list_to_list_node(data[0])
+            lst2 = list_to_list_node(data[1])
+            lst3 = list_to_list_node(data[2])
             test_cases.append([lst1, lst2, lst3])
 
         for tc in test_cases:
