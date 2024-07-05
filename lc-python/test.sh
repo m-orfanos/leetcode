@@ -13,5 +13,5 @@ if ! [[ $1 =~ $re ]] ; then
 fi
 
 # TODO add "problem has been solved" validation
-problem_file=$(find ./ -type f -name "lc_*"$1"_*")
+problem_file=$(find ./ -type f -name "lc_*"$1"_*\.py")
 python3 $problem_file
