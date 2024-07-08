@@ -13,10 +13,8 @@ def has_cycle(head: Optional[ListNode]) -> bool:
     if head is None:
         return False
     slow = head
-    fast = head.next.next if head.next else None
-    while slow and fast:
-        if slow is fast:
-            return True
+    fast = head.next
+    while slow and fast and slow is not fast:
         slow = slow.next
         fast = fast.next.next if fast.next else None
     return slow is fast
