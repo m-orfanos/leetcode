@@ -18,6 +18,7 @@ def binary_search(nums: List[int], target: int) -> int:
             high = mid - 1
         else:
             return mid
+    # insertion point
     return -(low + 1)
 
 
