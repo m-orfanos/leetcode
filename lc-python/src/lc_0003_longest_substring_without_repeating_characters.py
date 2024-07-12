@@ -8,16 +8,16 @@ def longest_substring0(s: str) -> int:
     Space complexity: O(n)
     """
     best = 0
-    curr = deque()
-    d = {}
-    for i, ch in enumerate(s):
-        while ch in d:
-            d.pop(curr.popleft())
+    window = deque()
+    chars = {}
+    for ch in s:
+        while ch in chars:
+            chars.pop(window.popleft())
 
-        d[ch] = i
-        curr.append(ch)
+        chars[ch] = 0
+        window.append(ch)
 
-        best = max(len(curr), best)
+        best = max(len(window), best)
 
     return best
 

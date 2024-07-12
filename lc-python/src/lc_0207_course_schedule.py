@@ -2,39 +2,13 @@ import unittest
 from typing import List
 
 
-def can_finish(numCourses: int, prerequisites: List[List[int]]) -> bool:
+def can_finish0(numCourses: int, prerequisites: List[List[int]]) -> bool:
     """
     Time complexity: O(m+n)
     Space complexity: O(m+n)
       where
         m = nb of courses/nodes/vertices
         n = nb of prerequisites/links/edges
-
-    Commentary
-      I tried multiples approaches until I found something I liked.
-
-      The first approach consisted of created a graph and then walking
-      the graph checking for circular paths. It timed out :D
-
-      For a second approach, I used a nxn matrix to reflect walking
-      the graph. I would complete one walk and update it's value,
-      one at a time. It also timed out :D :D :D
-
-      Third time's the try! I modified the above approach to cache
-      all child traversals. It passed the test but the runtime was
-      in the bottom ten percent of submissions. I wanted to find
-      another way.
-
-      Eventually I looked at some of the shared solutions: all of
-      them use recursion... which I wanted to avoid. But I was stuck
-      so I wrote up a recursive approach and tried to convert it
-      into an iterative one.
-
-      I got stuck for a long time because I couldn't figure out
-      how to convert the base case. I finally understood you can't
-      just pop the stack and mutate the state as in a simple DFS
-      traversal: you have to wait until all the child nodes have
-      been processed. It seems to obvious in hindsight XD
     """
 
     adjacents = [[] for _ in range(numCourses)]

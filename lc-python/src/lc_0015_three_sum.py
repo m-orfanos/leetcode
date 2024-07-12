@@ -11,6 +11,8 @@ def three_sum0(nums: List[int]) -> List[List[int]]:
     """
     nums.sort()
 
+    # map of values to indices
+    # {v1:[i1,j1,k1,...], v2:[i2,j2,k2,...]}
     d = {}
     for i in range(len(nums)):
         ni = nums[i]
@@ -34,6 +36,7 @@ def three_sum0(nums: List[int]) -> List[List[int]]:
             t = -1 * (ni + nj)
             if t in d:
                 for k in d[t]:
+                    # skip duplicates
                     if i < j < k:
                         nk = nums[k]
                         triplets.append([ni, nj, nk])
@@ -50,27 +53,35 @@ def three_sum1(nums: List[int]) -> List[List[int]]:
     Space complexity: O(n)
     """
     nums.sort()
-    triplets = set()
+    prev = None
+    triplets = []
     for i in range(len(nums)):
+        # skip duplicates
+        if nums[i] == prev:
+            continue
+
+        prev = nums[i]
+        target = 0 - nums[i]
+
         l = i + 1
         r = len(nums) - 1
-        target = 0 - nums[i]
         while l < r:
             if nums[l] + nums[r] < target:
                 l += 1
             elif nums[l] + nums[r] > target:
                 r -= 1
             else:
-                triplets.add((nums[i], nums[l], nums[r]))
+                triplets.append((nums[i], nums[l], nums[r]))
                 l += 1
                 r -= 1
+
                 # skip duplicates
                 while l < r and nums[l] == nums[l - 1]:
                     l += 1
                 while l < r and nums[r] == nums[r + 1]:
                     r -= 1
 
-    return list(triplets)
+    return triplets
 
 
 def three_sum2(nums: List[int]) -> List[List[int]]:
