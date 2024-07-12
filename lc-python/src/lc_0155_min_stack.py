@@ -25,8 +25,8 @@ class MinStack:
         return self.stack[-1][1]
 
 
-class Test(unittest.TestCase):
-    def test_(self):
+class TestMinStack(unittest.TestCase):
+    def test_min_stack(self):
         s = MinStack()
         s.push(-2)
         s.push(0)

@@ -71,7 +71,7 @@ def can_finish(numCourses: int, prerequisites: List[List[int]]) -> bool:
     return True
 
 
-class Test(unittest.TestCase):
+class TestCourseSchedule(unittest.TestCase):
     @staticmethod
     def parse_input():
         data = [
@@ -83,14 +83,14 @@ class Test(unittest.TestCase):
         ]
         return data
 
-    def test_(self):
+    def test_can_finish0(self):
         test_cases = self.parse_input()
         for i, tc in enumerate(test_cases):
             a = tc[0]
             b = tc[1]
             expected = tc[2]
 
-            actual = can_finish(a, b)
+            actual = can_finish0(a, b)
 
             self.assertEqual(actual, expected, f"test case {i} failed")
 

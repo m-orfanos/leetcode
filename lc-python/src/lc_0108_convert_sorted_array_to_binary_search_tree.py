@@ -58,7 +58,7 @@ def sorted_array_to_binary_search_tree1(nums: List[int]) -> Optional[TreeNode]:
     return root
 
 
-class Test(unittest.TestCase):
+class TestConvertSortedArrayToBST(unittest.TestCase):
     @staticmethod
     def parse_input():
         data = [

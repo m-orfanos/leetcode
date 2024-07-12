@@ -36,7 +36,7 @@ def missing_number1(nums: List[int]) -> int:
     return missing
 
 
-class Test(unittest.TestCase):
+class TestMissingNumber(unittest.TestCase):
     @staticmethod
     def parse_input():
         data = [
@@ -48,7 +48,7 @@ class Test(unittest.TestCase):
         ]
         return data
 
-    def test_missing_number(self):
+    def test_missing_number0(self):
         test_cases = self.parse_input()
         for tc in test_cases:
             a = tc[0]

@@ -71,7 +71,7 @@ def move_zeroes3(xs: List[int]) -> None:
         xs[i] = 0
 
 
-class Test(unittest.TestCase):
+class TestMoveZeroes(unittest.TestCase):
     @staticmethod
     def parse_input():
         data = [
@@ -81,7 +81,7 @@ class Test(unittest.TestCase):
         ]
         return data
 
-    def test_move_zeroes(self):
+    def test_move_zeroes0(self):
         test_cases = self.parse_input()
         for tc in test_cases:
             a = tc[0]
