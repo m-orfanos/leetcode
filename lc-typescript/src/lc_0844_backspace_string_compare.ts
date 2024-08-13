@@ -48,7 +48,7 @@ function backspace_string_compare3(s: string, t: string): boolean {
 
     // iterate over both strings
     // compare when find valid character
-    while (si < s.length && ti <= t.length) {
+    while (si < s.length && ti < t.length) {
         if (s[s.length - 1 - si] === "#") {
             sdels += 1;
             si += 1;
