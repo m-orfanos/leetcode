@@ -3,5 +3,10 @@
     "editor.formatOnSaveMode": "modificationsIfAvailable",
     "[python]": {
         "editor.defaultFormatter": "ms-python.black-formatter",
-    }
+    },
+    "deno.enable": true,
+    "deno.lint": true,
+    "[typescript]": {
+        "editor.defaultFormatter": "denoland.vscode-deno"
+    },
 }

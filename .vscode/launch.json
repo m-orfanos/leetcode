@@ -5,12 +5,20 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Test current problem",
+            "name": "Debug current (Python)",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/lc-python",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Debug current (TS)",
             "type": "node",
             "request": "launch",
-            "cwd": "${workspaceFolder}",
+            "cwd": "${workspaceFolder}/lc-typescript",
             "env": {},
-            "runtimeExecutable": "/home/morfanos/.deno/bin/deno",
+            "runtimeExecutable": "deno",
             "runtimeArgs": [
                 "test",
                 "--inspect-brk",
