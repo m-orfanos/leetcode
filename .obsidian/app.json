@@ -1,0 +1,23 @@
+{
+  "promptDelete": false,
+  "attachmentFolderPath": "docs/attachments",
+  "newFileLocation": "folder",
+  "alwaysUpdateLinks": true,
+  "useTab": false,
+  "newFileFolderPath": "docs/inbox",
+  "userIgnoreFilters": [
+    "lc-python/",
+    "lc-typescript/"
+  ],
+  "showInlineTitle": false,
+  "propertiesInDocument": "source",
+  "trashOption": "local",
+  "showUnsupportedFiles": false,
+  "pdfExportSettings": {
+    "pageSize": "A4",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  },
+  "spellcheck": false
+}

@@ -1,0 +1,12 @@
+{
+  "immediateReplace": true,
+  "suggester": true,
+  "historyPriority": true,
+  "historyLimit": 100,
+  "history": [
+    ":shrug:",
+    ":x:",
+    ":white_check_mark:",
+    ":id:"
+  ]
+}
