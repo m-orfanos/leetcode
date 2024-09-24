@@ -1,10 +1,8 @@
 # Reviews
 
-This file exists to enable the [Obsidian spaced-repetition plugin](https://github.com/st3v3nmw/obsidian-spaced-repetition).
+This file and the #flashcards/review enables the [Obsidian spaced-repetition plugin](https://github.com/st3v3nmw/obsidian-spaced-repetition).
 
 ## Flashcards
-
-#flashcards/review
 
 0001 Two Sum::Review
 
