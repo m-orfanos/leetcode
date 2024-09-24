@@ -12,6 +12,6 @@ if ! [[ $1 =~ $re ]] ; then
    exit 1
 fi
 
-# TODO add "problem has been solved" validation
 problem_file=$(find ./lc-typescript/src -type f -name "lc_*"$1"_*")
+echo "Testing:" $problem_file
 deno test $problem_file

@@ -12,6 +12,6 @@ if ! [[ $1 =~ $re ]] ; then
    exit 1
 fi
 
-# TODO add "problem has been solved" validation
 problem_file=$(find ./lc-python/src -type f -name "lc_*"$1"_*\.py")
-python $problem_file
+echo "Testing:" $problem_file
+python3 $problem_file
