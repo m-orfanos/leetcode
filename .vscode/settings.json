@@ -9,4 +9,15 @@
     "[typescript]": {
         "editor.defaultFormatter": "denoland.vscode-deno"
     },
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "local-db",
+            "username": "morfanos",
+            "database": "postgres"
+        }
+    ],
 }
