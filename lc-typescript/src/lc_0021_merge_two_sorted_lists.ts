@@ -1,8 +1,15 @@
 import { assertEquals } from "https://deno.land/std@0.224.0/assert/assert_equals.ts";
 
-import { ListNode, array_to_linked_list, linked_list_to_array } from "./shared/utils.ts";
+import {
+    array_to_linked_list,
+    linked_list_to_array,
+    ListNode,
+} from "./shared/utils.ts";
 
-function merge_two_lists1(list1: ListNode | null, list2: ListNode | null): ListNode | null {
+function merge_two_lists1(
+    list1: ListNode | null,
+    list2: ListNode | null,
+): ListNode | null {
     if (list1 == null || list2 == null) {
         return list1 || list2;
     }
@@ -15,9 +22,12 @@ function merge_two_lists1(list1: ListNode | null, list2: ListNode | null): ListN
     arr3.sort();
 
     return array_to_linked_list(arr3);
-};
+}
 
-function merge_two_lists2(list1: ListNode | null, list2: ListNode | null): ListNode | null {
+function merge_two_lists2(
+    list1: ListNode | null,
+    list2: ListNode | null,
+): ListNode | null {
     if (list1 == null || list2 == null) {
         return list1 || list2;
     }
@@ -52,7 +62,7 @@ function merge_two_lists2(list1: ListNode | null, list2: ListNode | null): ListN
     }
 
     return ans.next;
-};
+}
 
 Deno.test("0021 Merge Two Sorted Lists", () => {
     const test_cases = [
