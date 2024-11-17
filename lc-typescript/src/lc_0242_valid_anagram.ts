@@ -38,6 +38,21 @@ function is_anagram2(s: string, t: string): boolean {
     return s1 === t1;
 }
 
+function is_anagram3(s: string, t: string): boolean {
+    if (s.length !== t.length) {
+        return false;
+    }
+
+    const letters = new Array<number>(26).fill(0);
+    for (let i = 0; i < s.length; i++) {
+        // a = 97, z = 122
+        letters[s.charCodeAt(i) - 97] += 1;
+        letters[t.charCodeAt(i) - 97] -= 1;
+    }
+
+    return letters.every((l) => l === 0);
+}
+
 Deno.test("0242 Valid Anagram", () => {
     const test_cases: [string, string, boolean][] = [
         ["anagram", "nagaram", true],
@@ -52,11 +67,12 @@ Deno.test("0242 Valid Anagram", () => {
 
         const actual1 = is_anagram1(s, t);
         const actual2 = is_anagram2(s, t);
+        const actual3 = is_anagram3(s, t);
 
         const expected = test_case[2];
 
         assertEquals(actual1, expected);
         assertEquals(actual2, expected);
+        assertEquals(actual3, expected);
     }
-
 });
