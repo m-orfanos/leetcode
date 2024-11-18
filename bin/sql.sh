@@ -13,5 +13,5 @@ if ! [[ $1 =~ $re ]] ; then
 fi
 
 problem_file=$(find ./lc-sql -type f -name "lc_*"$1"_*")
-echo "Testing:" $problem_file
+echo "Running query:" $problem_file
 psql -U morfanos -d postgres -q < $problem_file

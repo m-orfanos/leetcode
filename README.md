@@ -44,7 +44,7 @@ Run postgresql solutions (no testing, only outputs result)
 
 ```shell
 ➜  leetcode git:(main) ✗ ./bin/sql.sh 0197
-Testing: ./lc-sql/lc_0197_rising_temperature.sql
+Running query: ./lc-sql/lc_0197_rising_temperature.sql
  id 
 ----
   2
