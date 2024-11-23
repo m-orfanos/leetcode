@@ -1,5 +1,3 @@
-SET client_min_messages TO WARNING;
-
 -- SCHEMA
 Create table If Not Exists Employee (empId int, name varchar(255), supervisor int, salary int);
 Create table If Not Exists Bonus (empId int, bonus int);

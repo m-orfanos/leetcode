@@ -1,5 +1,3 @@
-SET client_min_messages TO WARNING;
-
 -- SCHEMA
 -- CREATE TYPE yesno AS ENUM ('Y', 'N');
 CREATE TABLE IF NOT EXISTS Products (product_id INT, low_fats yesno, recyclable yesno);

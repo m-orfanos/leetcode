@@ -1,5 +1,3 @@
-SET client_min_messages TO WARNING;
-
 -- SCHEMA
 Create table If Not Exists Tweets(tweet_id int, content varchar(50));
 Truncate table Tweets;

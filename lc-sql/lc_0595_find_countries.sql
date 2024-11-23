@@ -1,5 +1,3 @@
-SET client_min_messages TO WARNING;
-
 -- SCHEMA
 Create table If Not Exists World (name varchar(255), continent varchar(255), area int, population int, gdp bigint);
 Truncate table World;

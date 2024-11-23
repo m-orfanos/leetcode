@@ -1,5 +1,3 @@
-SET client_min_messages TO WARNING;
-
 -- SCHEMA
 -- CREATE TYPE activity_type AS ENUM ('start', 'end');
 Create table If Not Exists Activity (machine_id int, process_id int, activity_type activity_type, timestamp float);

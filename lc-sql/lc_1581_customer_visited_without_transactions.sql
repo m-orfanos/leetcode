@@ -1,5 +1,3 @@
-SET client_min_messages TO WARNING;
-
 -- SCHEMA
 Create table If Not Exists Visits(visit_id int, customer_id int);
 Create table If Not Exists Transactions(transaction_id int, visit_id int, amount int);

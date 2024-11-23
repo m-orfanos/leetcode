@@ -1,5 +1,3 @@
-SET client_min_messages TO WARNING;
-
 -- SCHEMA
 CREATE TYPE confirmation_status AS ENUM('confirmed','timeout');
 Create table If Not Exists Signups (user_id int, time_stamp TIMESTAMP);

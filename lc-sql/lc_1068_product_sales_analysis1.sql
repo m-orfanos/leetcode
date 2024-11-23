@@ -1,5 +1,3 @@
-SET client_min_messages TO WARNING;
-
 -- SCHEMA
 -- PK (sales_id, year)
 Create table If Not Exists Sales (sale_id int, product_id int, year int, quantity int, price int);

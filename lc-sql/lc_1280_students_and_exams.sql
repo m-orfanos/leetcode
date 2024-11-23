@@ -1,5 +1,3 @@
-SET client_min_messages TO WARNING;
-
 -- SCHEMA
 Create table If Not Exists Students (student_id int, student_name varchar(20));
 Create table If Not Exists Subjects (subject_name varchar(20));

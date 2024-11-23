@@ -1,5 +1,3 @@
-SET client_min_messages TO WARNING;
-
 -- SCHEMA
 Create table If Not Exists Weather (id int, recordDate date, temperature int);
 Truncate table Weather;
