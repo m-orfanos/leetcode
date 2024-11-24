@@ -1,7 +1,7 @@
 import { assertEquals } from "https://deno.land/std@0.224.0/assert/assert_equals.ts";
 
 function majority_element1(nums: number[]): number {
-    const counter = new Map<number, number>()
+    const counter = new Map<number, number>();
     for (const n of nums) {
         const cnt = (counter.get(n) || 0) + 1;
         if (cnt > Math.floor(nums.length / 2)) {
@@ -13,6 +13,18 @@ function majority_element1(nums: number[]): number {
 }
 
 function majority_element2(nums: number[]): number {
+    const bag: number[] = [];
+    for (let i = 0; i < nums.length; i++) {
+        if (bag.length === 0 || bag[0] === nums[i]) {
+            bag.push(nums[i]);
+        } else {
+            bag.pop();
+        }
+    }
+    return bag[0];
+}
+
+function majority_element3(nums: number[]): number {
     let cnt = 1;
     let majority = nums[0];
     for (const n of nums) {
@@ -39,8 +51,10 @@ Deno.test("0169 Majority Element", () => {
 
         const actual1 = majority_element1(nums);
         const actual2 = majority_element2(nums);
+        const actual3 = majority_element3(nums);
 
         assertEquals(actual1, expected);
         assertEquals(actual2, expected);
+        assertEquals(actual3, expected);
     }
 });
