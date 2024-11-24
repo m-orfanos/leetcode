@@ -2,6 +2,18 @@ import { assertEquals } from "https://deno.land/std@0.224.0/assert/assert_equals
 import { ListNode, array_to_linked_list, linked_list_to_array } from "./shared/utils.ts";
 
 function reverse_linked_list1(head: ListNode | null): ListNode | null {
+    let p1: ListNode | null = head;
+    let p2: ListNode | null = null;
+    while (p1) {
+      const tmp = p2;
+      p2 = new ListNode(p1.val);
+      p2.next = tmp;
+      p1 = p1.next;
+    }
+    return p2;
+  }
+
+function reverse_linked_list2(head: ListNode | null): ListNode | null {
     let l1: ListNode | null = head;
     let l2: ListNode | null = null;
 
@@ -15,7 +27,7 @@ function reverse_linked_list1(head: ListNode | null): ListNode | null {
     return l2;
 }
 
-function reverse_linked_list2(head: ListNode | null): ListNode | null {
+function reverse_linked_list3(head: ListNode | null): ListNode | null {
     function reverse(l1: ListNode | null, l2: ListNode | null) {
         if (l1 == null) {
             return l2;
@@ -61,6 +73,20 @@ Deno.test("0206 Reverse Linked List", async (t) => {
 
             const expected = test_case[1];
             const actual = linked_list_to_array(reverse_linked_list2(nums));
+
+            assertEquals(actual, expected);
+        }
+    });
+
+    await t.step(`Recursive reverse linked list`, () => {
+        const test_cases = get_test_cases();
+        for (let i = 0; i < test_cases.length; i += 1) {
+            const test_case = test_cases[i];
+
+            const nums = array_to_linked_list(test_case[0]);
+
+            const expected = test_case[1];
+            const actual = linked_list_to_array(reverse_linked_list3(nums));
 
             assertEquals(actual, expected);
         }
