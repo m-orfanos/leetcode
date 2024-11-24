@@ -17,4 +17,4 @@ insert into EmployeeUNI (id, unique_id) values ('90', '3');
 -- -- SOLUTION
 SELECT unique_id, name
 FROM Employees
-LEFT OUTER JOIN EmployeeUNI ON Employees.id = EmployeeUNI.id;
+LEFT JOIN EmployeeUNI ON Employees.id = EmployeeUNI.id;

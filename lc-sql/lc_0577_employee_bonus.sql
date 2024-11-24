@@ -15,5 +15,5 @@ insert into Bonus (empId, bonus) values ('4', '2000');
 -- SOLUTION
 SELECT e.name, b.bonus
 FROM employee e
-LEFT OUTER JOIN bonus b ON e.empid = b.empid
+LEFT JOIN bonus b ON e.empid = b.empid
 WHERE b.bonus IS NULL OR b.bonus < 1000;
