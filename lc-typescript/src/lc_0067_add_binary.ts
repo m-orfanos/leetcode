@@ -42,6 +42,48 @@ function add_binary2(a: string, b: string): string {
     return ans.reverse().join("");
 }
 
+function add_binary3(a: string, b: string): string {
+    const [sm, lg] = a.length < b.length ? [a, b] : [b, a];
+
+    let ans = "";
+    let carry = "0";
+    for (let i = 0; i < lg.length; i++) {
+        const x = i < sm.length ? sm[sm.length - 1 - i] : "0";
+        const y = lg[lg.length - 1 - i];
+
+        let tmp;
+        if (x === "0" && y === "0" && carry === "0") {
+            tmp = "0";
+            carry = "0";
+        } else if (x === "0" && y === "0" && carry === "1") {
+            tmp = "1";
+            carry = "0";
+        } else if (x === "0" && y === "1" && carry === "0") {
+            tmp = "1";
+            carry = "0";
+        } else if (x === "0" && y === "1" && carry === "1") {
+            tmp = "0";
+            carry = "1";
+        } else if (x === "1" && y === "0" && carry === "0") {
+            tmp = "1";
+            carry = "0";
+        } else if (x === "1" && y === "0" && carry === "1") {
+            tmp = "0";
+            carry = "1";
+        } else if (x === "1" && y === "1" && carry === "0") {
+            tmp = "0";
+            carry = "1";
+        } else if (x === "1" && y === "1" && carry === "1") {
+            tmp = "1";
+            carry = "1";
+        }
+
+        ans = tmp + ans;
+    }
+
+    return carry === "1" ? carry + ans : ans;
+}
+
 Deno.test("0067 Add Binary", () => {
     const test_cases: [string, string, string][] = [
         ["11", "1", "100"],
@@ -60,8 +102,10 @@ Deno.test("0067 Add Binary", () => {
 
         const actual1 = add_binary1(a, b);
         const actual2 = add_binary2(a, b);
+        const actual3 = add_binary3(a, b);
 
         assertEquals(actual1, expected, `failed soln#1 for ${a} + ${b} == ${expected}`);
         assertEquals(actual2, expected, `failed soln#2 for ${a} + ${b} == ${expected}`);
+        assertEquals(actual3, expected, `failed soln#3 for ${a} + ${b} == ${expected}`);
     }
 });
