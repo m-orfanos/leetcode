@@ -39,7 +39,54 @@ function backspace_string_compare2(s: string, t: string): boolean {
     return sanitize(s) === sanitize(t);
 }
 
+function backspaceCompare(s: string, t: string): boolean {
+    function resolve(str: string): string[] {
+        const stk = [];
+        for (let i = 0; i < str.length; i++) {
+            if (str[i] === "#") {
+                if (stk.length > 0) {
+                    stk.pop();
+                }
+            } else {
+                stk.push(str[i]);
+            }
+        }
+        return stk;
+    }
+
+    const ss = resolve(s);
+    const tt = resolve(t);
+
+    return ss.join("") === tt.join("");
+}
+
 function backspace_string_compare3(s: string, t: string): boolean {
+    function resolve(a: string): string {
+        let ans = "";
+        let cnt = 0;
+        for (let i = 0; i < a.length; i++) {
+            const ch = a[a.length - 1 - i];
+            if (ch === "#") {
+                cnt += 1;
+                continue;
+            }
+            if (cnt > 0) {
+                cnt -= 1;
+                continue;
+            }
+            ans += ch;
+        }
+        return ans;
+    }
+
+    const ss = resolve(s);
+    const tt = resolve(t);
+
+    return ss === tt;
+}
+
+function backspace_string_compare4(s: string, t: string): boolean {
+    // this solution is WAY too try-hard
     let si = 0;
     let sdels = 0;
 
@@ -88,7 +135,6 @@ function backspace_string_compare3(s: string, t: string): boolean {
     return is_done(s, si, sdels) && is_done(t, ti, tdels);
 }
 
-
 Deno.test("0844 Backspace String Compare", () => {
     const test_cases: [string, string, boolean][] = [
         ["ab#c", "ad#c", true],
@@ -112,9 +158,11 @@ Deno.test("0844 Backspace String Compare", () => {
         const actual1 = backspace_string_compare1(s, t);
         const actual2 = backspace_string_compare2(s, t);
         const actual3 = backspace_string_compare3(s, t);
+        const actual4 = backspace_string_compare4(s, t);
 
         assertEquals(actual1, expected, `Failed for "${s}" & "${t}"`);
         assertEquals(actual2, expected, `Failed for "${s}" & "${t}"`);
         assertEquals(actual3, expected, `Failed for "${s}" & "${t}"`);
+        assertEquals(actual4, expected, `Failed for "${s}" & "${t}"`);
     }
 });
