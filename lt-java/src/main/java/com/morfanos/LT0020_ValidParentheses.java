@@ -6,7 +6,7 @@ class LT0020_ValidParentheses {
 
     static boolean isValid(String s) {
         var stk = new Stack<Character>();
-        for (int i = 0; i < s.length(); i++) {
+        for (var i = 0; i < s.length(); i++) {
             char ch = s.charAt(i);
             if (ch == ')') {
                 if (stk.isEmpty() || stk.pop() != '(') {
