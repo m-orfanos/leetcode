@@ -6,9 +6,4 @@ public class Arrays {
         return ns;
     }
 
-    @SuppressWarnings("unchecked")
-    public static <T> T[] toArray(T... ts) {
-        return ts;
-    }
-
 }
