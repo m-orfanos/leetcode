@@ -35,17 +35,17 @@ public class Helper {
     }
 
     // *** TreeNode *** //
-    public static TreeNode toTreeNode(int[] a) {
-        if (a.length == 0) {
+    public static TreeNode toTreeNode(List<Integer> a) {
+        if (a.isEmpty()) {
             return null;
         }
 
         record Tuple(int i, TreeNode t) {
         }
 
-        var head = new TreeNode(a[0]);
+        var head = new TreeNode(a.get(0));
 
-        Queue<Tuple> q = new LinkedList<Tuple>();
+        Queue<Tuple> q = new LinkedList<>();
         q.add(new Tuple(0, head));
         while (!q.isEmpty()) {
             var tup = q.poll();
@@ -55,13 +55,13 @@ public class Helper {
             var left = 2 * i + 1;
             var right = 2 * i + 2;
 
-            if (left < a.length) {
-                t.left = new TreeNode(a[left]);
+            if (left < a.size() && a.get(left) != null) {
+                t.left = new TreeNode(a.get(left));
                 q.add(new Tuple(left, t.left));
             }
 
-            if (right < a.length) {
-                t.right = new TreeNode(a[right]);
+            if (right < a.size() && a.get(right) != null) {
+                t.right = new TreeNode(a.get(right));
                 q.add(new Tuple(right, t.right));
             }
         }
