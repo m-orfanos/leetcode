@@ -2,6 +2,7 @@
     "recommendations": [
         "ms-python.python",
         "ms-python.black-formatter",
-        "denoland.vscode-deno"
+        "denoland.vscode-deno",
+        "vscjava.vscode-java-pack"
     ]
 }
