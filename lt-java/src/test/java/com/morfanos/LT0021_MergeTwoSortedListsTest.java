@@ -1,9 +1,8 @@
 package com.morfanos;
 
 import static com.morfanos.LT0021_MergeTwoSortedLists.mergeTwoLists;
-import static com.morfanos.utils.Arrays.toArray;
-import static com.morfanos.utils.ListNode.toArray;
-import static com.morfanos.utils.ListNode.toListNode;
+import static com.morfanos.shared.Helper.toArray;
+import static com.morfanos.shared.Helper.toListNode;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;

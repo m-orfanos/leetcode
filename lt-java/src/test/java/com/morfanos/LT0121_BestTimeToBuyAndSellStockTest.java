@@ -1,7 +1,7 @@
 package com.morfanos;
 
 import static com.morfanos.LT0121_BestTimeToBuyAndSellStock.maxProfit;
-import static com.morfanos.utils.Arrays.toArray;
+import static com.morfanos.shared.Helper.toArray;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;

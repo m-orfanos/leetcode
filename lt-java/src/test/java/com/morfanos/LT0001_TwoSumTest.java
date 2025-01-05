@@ -2,7 +2,7 @@ package com.morfanos;
 
 import static com.morfanos.LT0001_TwoSum.twoSum1;
 import static com.morfanos.LT0001_TwoSum.twoSum2;
-import static com.morfanos.utils.Arrays.toArray;
+import static com.morfanos.shared.Helper.toArray;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;

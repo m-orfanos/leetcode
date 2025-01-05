@@ -1,6 +1,6 @@
 package com.morfanos;
 
-import com.morfanos.utils.ListNode;
+import com.morfanos.shared.ListNode;
 
 class LT0021_MergeTwoSortedLists {
 
