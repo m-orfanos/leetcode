@@ -7,13 +7,14 @@ class LT0242_ValidAnagram {
             return false;
         }
 
-        var histogram = new int[26];
+        // Reminder: {'a':97, 'z':122, 'A':65, 'Z': 90}
+        var histogram = new int[128];
         for (int i = 0; i < s.length(); i++) {
-            histogram[s.charAt(i) - 'a'] += 1;
+            histogram[s.charAt(i)] += 1;
         }
 
         for (int i = 0; i < t.length(); i++) {
-            histogram[t.charAt(i) - 'a'] -= 1;
+            histogram[t.charAt(i)] -= 1;
         }
 
         for (int i = 0; i < histogram.length; i++) {
