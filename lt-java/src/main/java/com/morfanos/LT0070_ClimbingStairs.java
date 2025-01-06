@@ -2,7 +2,7 @@ package com.morfanos;
 
 import java.math.BigInteger;
 
-class LT070_ClimbingStairs {
+class LT0070_ClimbingStairs {
 
     static int climbStairs1(int n) {
         // Fibonacci sequence :/
