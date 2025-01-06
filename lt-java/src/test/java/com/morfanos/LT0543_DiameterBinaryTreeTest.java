@@ -1,5 +1,6 @@
 package com.morfanos;
 
+import static com.morfanos.LT0543_DiameterBinaryTree.diameterOfBinaryTree;
 import static com.morfanos.shared.Helper.toTreeNode;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -13,7 +14,7 @@ class LT0543_DiameterBinaryTreeTest {
     void diameterOfBinaryTree1() {
         var a = List.of(1, 2, 3, 4, 5);
         var t = toTreeNode(a);
-        var actual = LT0543_DiameterBinaryTree.diameterOfBinaryTree(t);
+        var actual = diameterOfBinaryTree(t);
         assertEquals(3, actual);
     }
 
