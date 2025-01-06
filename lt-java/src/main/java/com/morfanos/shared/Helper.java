@@ -7,6 +7,11 @@ import java.util.Queue;
 
 public class Helper {
 
+    @SuppressWarnings("unchecked")
+    public static <T> T[] toArray(T... a) {
+        return a;
+    }
+
     public static int[] toArray(int... a) {
         return a;
     }
