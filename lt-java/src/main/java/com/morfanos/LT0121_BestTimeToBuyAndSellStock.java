@@ -5,7 +5,7 @@ class LT0121_BestTimeToBuyAndSellStock {
     static int maxProfit(int[] prices) {
         var current = 0;
         var best = 0;
-        for (int i = 1; i < prices.length; i++) {
+        for (var i = 1; i < prices.length; i++) {
             current += prices[i] - prices[i - 1];
             if (current < 0) {
                 current = 0;

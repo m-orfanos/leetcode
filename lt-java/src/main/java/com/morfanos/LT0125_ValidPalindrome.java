@@ -3,10 +3,10 @@ package com.morfanos;
 class LT0125_ValidPalindrome {
 
     static boolean isPalindrome(String s) {
-        int a = 'a'; // 97
-        int z = 'z'; // 122
-        int A = 'A'; // 65
-        int Z = 'Z'; // 90
+        var a = 'a'; // 97
+        var z = 'z'; // 122
+        var A = 'A'; // 65
+        var Z = 'Z'; // 90
 
         var lhs = 0;
         var rhs = s.length() - 1;

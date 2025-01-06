@@ -5,12 +5,12 @@ class LT0409_LongestPalindrome {
     static int longestPalindrome(String s) {
         // Reminder: {'a':97, 'z':122, 'A':65, 'Z': 90}
         var histogram = new int[128];
-        for (int i = 0; i < s.length(); i++) {
+        for (var i = 0; i < s.length(); i++) {
             histogram[s.charAt(i)] += 1;
         }
 
         var len = 0;
-        for (int i = 0; i < histogram.length; i++) {
+        for (var i = 0; i < histogram.length; i++) {
             len += histogram[i] / 2;
         }
 

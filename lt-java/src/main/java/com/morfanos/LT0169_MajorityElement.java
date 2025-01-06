@@ -6,7 +6,7 @@ class LT0169_MajorityElement {
         var num = nums[0];
         var cnt = 1;
 
-        for (int i = 1; i < nums.length; i++) {
+        for (var i = 1; i < nums.length; i++) {
             if (nums[i] == num) {
                 cnt += 1;
             } else {

@@ -10,15 +10,15 @@ class LT0383_RansomNote {
         // Reminder: {'a':97, 'z':122, 'A':65, 'Z': 90}
         var histogram = new int[128];
 
-        for (int i = 0; i < magazine.length(); i++) {
+        for (var i = 0; i < magazine.length(); i++) {
             histogram[magazine.charAt(i)] += 1;
         }
 
-        for (int i = 0; i < ransomNote.length(); i++) {
+        for (var i = 0; i < ransomNote.length(); i++) {
             histogram[ransomNote.charAt(i)] -= 1;
         }
 
-        for (int i = 0; i < histogram.length; i++) {
+        for (var i = 0; i < histogram.length; i++) {
             if (histogram[i] < 0) {
                 return false;
             }
