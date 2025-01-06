@@ -17,7 +17,7 @@ class LT0070_ClimbingStairs {
         return b;
     }
 
-    private int comb(int n, int k) {
+    private static int comb(int n, int k) {
         // https://en.wikipedia.org/wiki/Combination#Example_of_counting_combinations
         var i = 0;
         var t = BigInteger.ONE; // numerator
@@ -30,7 +30,7 @@ class LT0070_ClimbingStairs {
         return t.divide(b).intValue();
     }
 
-    public int climbStairs(int n) {
+    static int climbStairs(int n) {
         // combinatorics approach
         //
         // 1:1 {1}
