@@ -16,6 +16,18 @@ public class Helper {
         return a;
     }
 
+    public static int[][] to2DArray(int... a) {
+        var k = 0;
+        var ans = new int[a.length / 2][a.length / 2];
+        for (int i = 0; i < ans.length; i++) {
+            for (int j = 0; j < ans[i].length; j++) {
+                ans[i][j] = a[k];
+                k += 1;
+            }
+        }
+        return ans;
+    }
+
     // *** ListNode *** //
     public static ListNode toListNode(int[] a) {
         if (a.length == 0) {
