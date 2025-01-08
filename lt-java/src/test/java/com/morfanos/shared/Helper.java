@@ -7,12 +7,12 @@ import java.util.Queue;
 
 public class Helper {
 
-    @SuppressWarnings("unchecked")
-    public static <T> T[] toArray(T... a) {
+    @SafeVarargs
+    public static <T> T[] to1DArrayObj(T... a) {
         return a;
     }
 
-    public static int[] toArray(int... a) {
+    public static int[] to1DArray(int... a) {
         return a;
     }
 
@@ -42,7 +42,7 @@ public class Helper {
         return h;
     }
 
-    public static int[] toArray(ListNode l) {
+    public static int[] to1DArray(ListNode l) {
         var a = new ArrayList<Integer>();
         while (l != null) {
             a.add(l.val);
@@ -60,7 +60,7 @@ public class Helper {
         record Tuple(int i, TreeNode t) {
         }
 
-        var head = new TreeNode(a.get(0));
+        var head = new TreeNode(a.getFirst());
 
         Queue<Tuple> q = new LinkedList<>();
         q.add(new Tuple(0, head));
@@ -86,7 +86,7 @@ public class Helper {
         return head;
     }
 
-    public static int[] toArray(TreeNode t) {
+    public static int[] to1DArray(TreeNode t) {
         List<Integer> l = new ArrayList<>();
 
         Queue<TreeNode> q = new LinkedList<TreeNode>();
