@@ -17,14 +17,21 @@ public class Helper {
     }
 
     public static int[][] to2DArray(int... a) {
+        var n = (int) Math.sqrt(a.length);
+
+        if (n * n != a.length) {
+            throw new IllegalArgumentException("Not a square matrix");
+        }
+
         var k = 0;
-        var ans = new int[a.length / 2][a.length / 2];
+        var ans = new int[n][n];
         for (int i = 0; i < ans.length; i++) {
             for (int j = 0; j < ans[i].length; j++) {
                 ans[i][j] = a[k];
                 k += 1;
             }
         }
+
         return ans;
     }
 
