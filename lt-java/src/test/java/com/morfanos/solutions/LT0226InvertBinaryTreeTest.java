@@ -1,6 +1,5 @@
 package com.morfanos.solutions;
 
-import com.morfanos.shared.Helper;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -17,7 +16,7 @@ class LT0226InvertBinaryTreeTest {
         var t1 = toTreeNode(List.of(4, 2, 7, 1, 3, 6, 9));
         var t2 = invertTree(t1);
         assertArrayEquals(
-                Helper.to1DArray(4, 7, 2, 9, 6, 3, 1),
+                to1DArray(4, 7, 2, 9, 6, 3, 1),
                 to1DArray(t2));
     }
 
