@@ -1,7 +1,7 @@
-package com.morfanos;
+package com.morfanos.solutions;
 
-import static com.morfanos.LT0542ZeroOneMatrix.updateMatrix;
 import static com.morfanos.shared.Helper.to2DArray;
+import static com.morfanos.solutions.LT0542ZeroOneMatrix.updateMatrix;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;

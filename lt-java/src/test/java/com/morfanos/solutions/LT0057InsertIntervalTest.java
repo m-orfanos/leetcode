@@ -1,10 +1,10 @@
-package com.morfanos;
+package com.morfanos.solutions;
 
 import org.junit.jupiter.api.Test;
 
-import static com.morfanos.LT0057InsertInterval.insert;
 import static com.morfanos.shared.Helper.to1DArray;
 import static com.morfanos.shared.Helper.to2DArray;
+import static com.morfanos.solutions.LT0057InsertInterval.insert;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class LT0057InsertIntervalTest {

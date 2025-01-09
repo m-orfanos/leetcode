@@ -1,8 +1,8 @@
-package com.morfanos;
+package com.morfanos.solutions;
 
 import org.junit.jupiter.api.Test;
 
-import static com.morfanos.LT0190ReverseBits.reverseBits;
+import static com.morfanos.solutions.LT0190ReverseBits.reverseBits;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class LT0190ReverseBitsTest {

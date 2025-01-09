@@ -1,7 +1,7 @@
-package com.morfanos;
+package com.morfanos.solutions;
 
-import static com.morfanos.LT0102BinaryTreeLevelOrderTraversal.levelOrder;
 import static com.morfanos.shared.Helper.toTreeNode;
+import static com.morfanos.solutions.LT0102BinaryTreeLevelOrderTraversal.levelOrder;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;

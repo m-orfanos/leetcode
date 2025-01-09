@@ -1,10 +1,10 @@
-package com.morfanos;
+package com.morfanos.solutions;
 
 import org.junit.jupiter.api.Test;
 
-import static com.morfanos.LT0053MaximumSubArray.maxSubArray1;
-import static com.morfanos.LT0053MaximumSubArray.maxSubArray2;
 import static com.morfanos.shared.Helper.to1DArray;
+import static com.morfanos.solutions.LT0053MaximumSubArray.maxSubArray1;
+import static com.morfanos.solutions.LT0053MaximumSubArray.maxSubArray2;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class LT0053MaximumSubArrayTest {

@@ -1,11 +1,11 @@
-package com.morfanos;
+package com.morfanos.solutions;
 
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static com.morfanos.LT0572SubtreeAnotherTree.*;
 import static com.morfanos.shared.Helper.toTreeNode;
+import static com.morfanos.solutions.LT0572SubtreeAnotherTree.*;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

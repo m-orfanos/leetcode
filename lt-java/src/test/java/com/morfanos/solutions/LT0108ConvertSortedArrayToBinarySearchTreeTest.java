@@ -1,9 +1,9 @@
-package com.morfanos;
+package com.morfanos.solutions;
 
 import org.junit.jupiter.api.Test;
 
-import static com.morfanos.LT0108ConvertSortedArrayToBinarySearchTree.sortedArrayToBST;
 import static com.morfanos.shared.Helper.to1DArray;
+import static com.morfanos.solutions.LT0108ConvertSortedArrayToBinarySearchTree.sortedArrayToBST;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 class LT0108ConvertSortedArrayToBinarySearchTreeTest {

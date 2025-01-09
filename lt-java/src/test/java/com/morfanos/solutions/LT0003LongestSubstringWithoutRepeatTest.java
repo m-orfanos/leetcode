@@ -1,7 +1,7 @@
-package com.morfanos;
+package com.morfanos.solutions;
 
-import static com.morfanos.LT0003LongestSubstringWithoutRepeat.lengthOfLongestSubstring1;
-import static com.morfanos.LT0003LongestSubstringWithoutRepeat.lengthOfLongestSubstring2;
+import static com.morfanos.solutions.LT0003LongestSubstringWithoutRepeat.lengthOfLongestSubstring1;
+import static com.morfanos.solutions.LT0003LongestSubstringWithoutRepeat.lengthOfLongestSubstring2;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;

@@ -1,8 +1,8 @@
-package com.morfanos;
+package com.morfanos.solutions;
 
-import static com.morfanos.LT0015ThreeSum.threeSum1;
-import static com.morfanos.LT0015ThreeSum.threeSum2;
 import static com.morfanos.shared.Helper.to1DArray;
+import static com.morfanos.solutions.LT0015ThreeSum.threeSum1;
+import static com.morfanos.solutions.LT0015ThreeSum.threeSum2;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Comparator;
