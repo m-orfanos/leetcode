@@ -1,9 +1,12 @@
 package com.morfanos.shared;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
+import java.util.Stack;
 
 public class Helper {
 
@@ -109,6 +112,49 @@ public class Helper {
         }
 
         return l.stream().mapToInt(i -> i).toArray();
+    }
+
+    // **** Graph Node **** //
+    public static Node toGraph(List<List<Integer>> adjList) {
+        var m = new HashMap<Integer, Node>();
+        for (var i = 0; i < adjList.size(); i++) {
+            var v = i + 1;
+            var n = m.computeIfAbsent(v, k -> new Node(k));
+            for (var neighbor : adjList.get(i)) {
+                n.neighbors.add(m.computeIfAbsent(neighbor, k -> new Node(k)));
+            }
+        }
+        return m.get(1);
+    }
+
+    public static List<List<Integer>> toAdjList(Node node) {
+        if (node == null) {
+            return List.of();
+        }
+
+        var m = new LinkedHashMap<Integer, List<Integer>>();
+        m.put(node.val, new ArrayList<>());
+
+        var s = new Stack<Node>();
+        s.add(node);
+        while (!s.empty()) {
+            var n = s.pop();
+            for (var neighbor : n.neighbors) {
+                if (!m.containsKey(neighbor.val)) {
+                    s.add(neighbor);
+                    m.put(neighbor.val, new ArrayList<>());
+                }
+                m.get(n.val).add(neighbor.val);
+            }
+        }
+
+        var ans = new ArrayList<List<Integer>>();
+
+        var keys = new ArrayList<>(m.keySet());
+        keys.sort((a, b) -> a - b);
+        keys.forEach(k -> ans.add(m.get(k)));
+
+        return ans;
     }
 
 }
