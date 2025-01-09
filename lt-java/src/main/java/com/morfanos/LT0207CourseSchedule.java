@@ -23,7 +23,7 @@ class LT0207CourseSchedule {
         var visited = new int[numCourses];
 
         for (var i = 0; i < numCourses; i++) {
-            if (visited[i] == DONE) { // todo OR done
+            if (visited[i] == DONE) {
                 continue;
             }
 
@@ -31,24 +31,23 @@ class LT0207CourseSchedule {
             var stk = new Stack<Integer>();
             stk.push(i);
             while (!stk.isEmpty()) {
-                var n = stk.pop();
-
-                if (visited[n] == TODO) {
-                    visited[n] = DOING;
-                    stk.push(n);
-                } else { // doing
-                    visited[n] = DONE;
-                    continue;
-                }
+                var n = stk.peek(); // peek, NOT pop
+                var l = stk.size();
+                visited[n] = DOING;
 
                 for (var adj : adjList.get(n)) {
+                    if (visited[adj] == DOING) {
+                        return false;
+                    }
                     if (visited[adj] == TODO) {
                         stk.push(adj);
-                    } else if (visited[adj] == DOING) {
-                        return false;
-                    } else { // done
-                        continue;
                     }
+                }
+
+                if (stk.size() - l == 0) {
+                    // pop only when all prereqs are done
+                    stk.pop();
+                    visited[n] = DONE;
                 }
             }
         }
