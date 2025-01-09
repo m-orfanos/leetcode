@@ -20,10 +20,10 @@ class LT0207CourseSchedule {
         final var TODO = 0;
         final var DOING = 1;
         final var DONE = 2;
-        var visited = new int[numCourses];
+        var state = new int[numCourses];
 
         for (var i = 0; i < numCourses; i++) {
-            if (visited[i] == DONE) {
+            if (state[i] == DONE) {
                 continue;
             }
 
@@ -33,13 +33,13 @@ class LT0207CourseSchedule {
             while (!stk.isEmpty()) {
                 var n = stk.peek(); // peek, NOT pop
                 var l = stk.size();
-                visited[n] = DOING;
+                state[n] = DOING;
 
                 for (var adj : adjList.get(n)) {
-                    if (visited[adj] == DOING) {
+                    if (state[adj] == DOING) {
                         return false;
                     }
-                    if (visited[adj] == TODO) {
+                    if (state[adj] == TODO) {
                         stk.push(adj);
                     }
                 }
@@ -47,7 +47,7 @@ class LT0207CourseSchedule {
                 if (stk.size() - l == 0) {
                     // pop only when all prereqs are done
                     stk.pop();
-                    visited[n] = DONE;
+                    state[n] = DONE;
                 }
             }
         }
