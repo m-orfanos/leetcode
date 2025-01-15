@@ -1,7 +1,7 @@
-package com.morfanos;
+package com.morfanos.solutions;
 
-import static com.morfanos.LT0133CloneGraph.cloneGraph;
 import static com.morfanos.shared.Helper.toGraph;
+import static com.morfanos.solutions.LT0133CloneGraph.cloneGraph;
 import static com.morfanos.shared.Helper.toAdjList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

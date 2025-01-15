@@ -1,7 +1,7 @@
-package com.morfanos;
+package com.morfanos.solutions;
 
-import static com.morfanos.LT0150ReversePolishNotation.evalRPN;
 import static com.morfanos.shared.Helper.to1DArrayObj;
+import static com.morfanos.solutions.LT0150ReversePolishNotation.evalRPN;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;

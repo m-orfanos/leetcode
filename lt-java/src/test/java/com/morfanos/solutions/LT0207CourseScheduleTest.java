@@ -1,6 +1,6 @@
-package com.morfanos;
+package com.morfanos.solutions;
 
-import static com.morfanos.LT0207CourseSchedule.canFinish;
+import static com.morfanos.solutions.LT0207CourseSchedule.canFinish;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

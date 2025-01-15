@@ -1,4 +1,4 @@
-package com.morfanos;
+package com.morfanos.solutions;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;

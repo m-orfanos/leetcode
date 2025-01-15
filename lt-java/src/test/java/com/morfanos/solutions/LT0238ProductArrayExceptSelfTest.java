@@ -1,7 +1,7 @@
-package com.morfanos;
+package com.morfanos.solutions;
 
-import static com.morfanos.LT0238ProductArrayExceptSelf.productExceptSelf;
 import static com.morfanos.shared.Helper.to1DArray;
+import static com.morfanos.solutions.LT0238ProductArrayExceptSelf.productExceptSelf;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 import org.junit.jupiter.api.Test;
