@@ -1,6 +1,6 @@
-package com.morfanos;
+package com.morfanos.solutions;
 
-import static com.morfanos.LT0994RottingOranges.orangesRotting;
+import static com.morfanos.solutions.LT0994RottingOranges.orangesRotting;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;

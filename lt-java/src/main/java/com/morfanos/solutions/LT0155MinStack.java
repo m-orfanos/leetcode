@@ -1,4 +1,4 @@
-package com.morfanos;
+package com.morfanos.solutions;
 
 class LT0155MinStack {
 

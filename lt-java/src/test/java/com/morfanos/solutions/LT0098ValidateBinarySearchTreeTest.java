@@ -1,7 +1,7 @@
-package com.morfanos;
+package com.morfanos.solutions;
 
-import static com.morfanos.LT0098ValidateBinarySearchTree.isValidBST;
 import static com.morfanos.shared.Helper.toTreeNode;
+import static com.morfanos.solutions.LT0098ValidateBinarySearchTree.isValidBST;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
