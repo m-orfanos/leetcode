@@ -1,6 +1,6 @@
 import { assertEquals } from "https://deno.land/std@0.224.0/assert/assert_equals.ts";
 
-import { TreeNode, array_to_tree, tree_to_array } from "./shared/utils.ts";
+import { TreeNode, array_to_tree, tree_to_array } from "../shared/utils.ts";
 
 function invert_tree0(root: TreeNode | null): TreeNode | null {
     const stack = [root];

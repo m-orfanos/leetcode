@@ -1,5 +1,5 @@
 import { assertEquals } from "https://deno.land/std@0.224.0/assert/assert_equals.ts";
-import { TreeNode, array_to_tree } from "./shared/utils.ts";
+import { TreeNode, array_to_tree } from "../shared/utils.ts";
 
 function is_symmetric(root: TreeNode | null): boolean {
   function traverse(n1: TreeNode | null, n2: TreeNode | null): boolean {

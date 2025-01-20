@@ -1,5 +1,5 @@
 import { assertEquals } from "https://deno.land/std@0.224.0/assert/assert_equals.ts";
-import { TreeNode } from "./shared/utils.ts";
+import { TreeNode } from "../shared/utils.ts";
 
 function sorted_array_to_bst(nums: number[]): TreeNode | null {
   function traverse(low: number, high: number): TreeNode | null {

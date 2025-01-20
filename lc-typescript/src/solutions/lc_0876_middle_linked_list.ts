@@ -1,5 +1,5 @@
 import { assertEquals } from "https://deno.land/std@0.224.0/assert/assert_equals.ts";
-import { ListNode, array_to_linked_list, linked_list_to_array } from "./shared/utils.ts";
+import { ListNode, array_to_linked_list, linked_list_to_array } from "../shared/utils.ts";
 
 function middle_linked_list(head: ListNode | null): ListNode | null {
     let slow = head;

@@ -16,14 +16,14 @@
             "name": "Debug current (TS)",
             "type": "node",
             "request": "launch",
-            "cwd": "${workspaceFolder}/lc-typescript",
+            "cwd": "${workspaceFolder}/lc-typescript/src/solutions",
             "env": {},
             "runtimeExecutable": "deno",
             "runtimeArgs": [
                 "test",
                 "--inspect-brk",
                 "-A",
-                "src/${fileBasename}"
+                "${fileBasename}"
             ],
             "attachSimplePort": 9229
         }

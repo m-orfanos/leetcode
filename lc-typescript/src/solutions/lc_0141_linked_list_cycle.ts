@@ -1,5 +1,5 @@
 import { assertEquals } from "https://deno.land/std@0.224.0/assert/assert_equals.ts";
-import { ListNode } from "./shared/utils.ts";
+import { ListNode } from "../shared/utils.ts";
 
 function has_cycle1(head: ListNode | null): boolean {
     let slow = head;
@@ -53,7 +53,7 @@ Deno.test("0141 Linked List Cycle", () => {
 
         const head = test_case[0];
         const expected = test_case[1];
-        
+
         const actual1 = has_cycle1(head);
         assertEquals(actual1, expected);
 

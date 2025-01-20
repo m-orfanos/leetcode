@@ -1,5 +1,5 @@
 import { assertEquals } from "https://deno.land/std@0.224.0/assert/assert_equals.ts";
-import { TreeNode, array_to_tree } from "./shared/utils.ts";
+import { TreeNode, array_to_tree } from "../shared/utils.ts";
 
 function lowest_common_ancestor(root: TreeNode | null, p: TreeNode | null, q: TreeNode | null): TreeNode | null {
     if (p == null || q == null) {

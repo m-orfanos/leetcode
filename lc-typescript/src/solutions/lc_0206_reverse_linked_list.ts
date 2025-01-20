@@ -1,17 +1,17 @@
 import { assertEquals } from "https://deno.land/std@0.224.0/assert/assert_equals.ts";
-import { ListNode, array_to_linked_list, linked_list_to_array } from "./shared/utils.ts";
+import { ListNode, array_to_linked_list, linked_list_to_array } from "../shared/utils.ts";
 
 function reverse_linked_list1(head: ListNode | null): ListNode | null {
     let p1: ListNode | null = head;
     let p2: ListNode | null = null;
     while (p1) {
-      const tmp = p2;
-      p2 = new ListNode(p1.val);
-      p2.next = tmp;
-      p1 = p1.next;
+        const tmp = p2;
+        p2 = new ListNode(p1.val);
+        p2.next = tmp;
+        p1 = p1.next;
     }
     return p2;
-  }
+}
 
 function reverse_linked_list2(head: ListNode | null): ListNode | null {
     let l1: ListNode | null = head;

@@ -1,5 +1,5 @@
 import { assertEquals } from "https://deno.land/std@0.224.0/assert/assert_equals.ts";
-import { array_to_tree, TreeNode } from "./shared/utils.ts";
+import { array_to_tree, TreeNode } from "../shared/utils.ts";
 
 function is_balanced1(root: TreeNode | null): boolean {
     function dfs(node: TreeNode | null): number {

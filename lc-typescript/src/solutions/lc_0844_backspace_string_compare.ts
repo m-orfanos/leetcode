@@ -39,27 +39,6 @@ function backspace_string_compare2(s: string, t: string): boolean {
     return sanitize(s) === sanitize(t);
 }
 
-function backspaceCompare(s: string, t: string): boolean {
-    function resolve(str: string): string[] {
-        const stk = [];
-        for (let i = 0; i < str.length; i++) {
-            if (str[i] === "#") {
-                if (stk.length > 0) {
-                    stk.pop();
-                }
-            } else {
-                stk.push(str[i]);
-            }
-        }
-        return stk;
-    }
-
-    const ss = resolve(s);
-    const tt = resolve(t);
-
-    return ss.join("") === tt.join("");
-}
-
 function backspace_string_compare3(s: string, t: string): boolean {
     function resolve(a: string): string {
         let ans = "";

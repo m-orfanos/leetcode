@@ -4,7 +4,7 @@ import {
     array_to_linked_list,
     linked_list_to_array,
     ListNode,
-} from "./shared/utils.ts";
+} from "../shared/utils.ts";
 
 function merge_two_lists1(
     list1: ListNode | null,

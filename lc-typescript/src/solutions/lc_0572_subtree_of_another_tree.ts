@@ -1,5 +1,5 @@
 import { assertEquals } from "https://deno.land/std@0.224.0/assert/assert_equals.ts";
-import { TreeNode, array_to_tree } from "./shared/utils.ts";
+import { TreeNode, array_to_tree } from "../shared/utils.ts";
 
 function is_subtree(root: TreeNode | null, subRoot: TreeNode | null): boolean {
   function is_equals(node1: TreeNode | null, node2: TreeNode | null): boolean {

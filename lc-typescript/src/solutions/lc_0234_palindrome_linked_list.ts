@@ -1,5 +1,5 @@
 import { assertEquals } from "https://deno.land/std@0.224.0/assert/assert_equals.ts";
-import { ListNode, array_to_linked_list } from "./shared/utils.ts";
+import { ListNode, array_to_linked_list } from "../shared/utils.ts";
 
 function is_palindrome(head: ListNode | null): boolean {
   let rev: ListNode | null = null;
